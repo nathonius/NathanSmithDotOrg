@@ -22,17 +22,41 @@ server.route({
 
 server.route({
     method: 'GET',
-    path: '/',
-    handler: function (request, reply) {
-        reply.file('./public/Officerhalf.github.io/index.html');
+    path: '/js/{path*}',
+    handler: {
+        directory: {
+            path: './public/js',
+            listing: false,
+            index: false
+        }
     }
-})
+});
 
 server.route({
     method: 'GET',
-    path: '/hello/{name}',
+    path: '/css/{path*}',
+    handler: {
+        directory: {
+            path: './public/css',
+            listing: false,
+            index: false
+        }
+    }
+});
+
+server.route({
+    method: 'GET',
+    path: '/old',
     handler: function (request, reply) {
-        return reply('hello' + request.params['name']);
+        reply.file('./public/Officerhalf.github.io/index.html');
+    }
+});
+
+server.route({
+    method: 'GET',
+    path: '/',
+    handler: function (request, reply) {
+        reply.file('./public/index.html');
     }
 });
 

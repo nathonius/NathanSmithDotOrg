@@ -34,9 +34,15 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="public\js\nav.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="server.ts" />
     <None Include="officerhalf - Web Deploy.pubxml" />
     <Content Include="package.json" />
+    <Content Include="public\css\nav.css">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="public\Officerhalf.github.io\css\custom.css" />
     <Content Include="public\Officerhalf.github.io\css\grayscale.css" />
     <Content Include="public\Officerhalf.github.io\css\grayscale.min.css" />
@@ -97,12 +103,17 @@
     <Content Include="public\Officerhalf.github.io\vendor\font-awesome\scss\_screen-reader.scss" />
     <Content Include="public\Officerhalf.github.io\vendor\font-awesome\scss\_stacked.scss" />
     <Content Include="public\Officerhalf.github.io\vendor\font-awesome\scss\_variables.scss" />
+    <Content Include="public\index.html">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="README.md" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="public\" />
+    <Folder Include="public\js\" />
+    <Folder Include="public\css\" />
     <Folder Include="public\Officerhalf.github.io\" />
     <Folder Include="public\Officerhalf.github.io\css\" />
     <Folder Include="public\Officerhalf.github.io\files\" />
