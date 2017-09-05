@@ -1,9 +1,30 @@
-﻿body {
-    padding-top: 3.25rem;
+﻿@keyframes showBtn {
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
+
+#top-button {
+    padding-left: 10px;
+    display: none;
+}
+
+#top-button.is-shown {
+    display: flex;
+    animation: showBtn 0.2s ease-in-out both;
+}
+
+#up {
+    font-size: 1rem;
+}
+
 .navbar {
     position: fixed !important;
-    top: 0;
-    left: 0;
-    right: 0;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    background-color: white;
+    background-image: none;
+    z-index: 10;
+    padding-left: 70px;
+    padding-right: 70px;
 }

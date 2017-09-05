@@ -7,39 +7,91 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.1/css/bulma.min.css">
     <link rel="stylesheet" href="css/nav.css" />
+    <link rel="stylesheet" href="css/main.css" />
 </head>
 <body>
-    <nav class="navbar ns-nav-fixed">
+    <nav id="navigation" class="navbar has-shadow">
         <div class="navbar-brand">
-            <a class="navbar-item">welcome</a>
+            <a class="navbar-item" href="#main-page">welcome<span class="icon" id="top-button"><i id="up" class="fa fa-chevron-up"></i></span></a>
             <div id="burgerIcon" class="navbar-burger" data-target="navMenu" onclick="toggleBurger()">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
         </div>
-        <div id="navMenu" class="navbar-menu">
-            <div class="navbar-start">
-                <a class="navbar-item">
+        <div id="navMenu" class="navbar-menu is-shadowless">
+            <div class="navbar-end">
+                <a id="about-link" class="navbar-item n-nav-link" onclick="closeBurger()" href="#about-page">
                     about
                 </a>
-                <a class="navbar-item">
+                <a id="projects-link" class="navbar-item n-nav-link" onclick="closeBurger()" href="#projects-page">
                     projects
                 </a>
-                <a class="navbar-item">
+                <a id="contact-link" class="navbar-item n-nav-link" onclick="closeBurger()" href="#contact-page">
                     contact
                 </a>
             </div>
         </div>
     </nav>
-    <div class="columns">
-        <div class="column is-two-thirds">
-            Nathan Smith
-        </div>
-        <div class="column">
-            Software Developer
-        </div>
+    <div class="main">
+        <section id="main-page" class="section">
+            <div class="container has-text-centered">
+                <h1 class="title main-title">nathan smith</h1>
+                <h2 class="subtitle main-subtitle">Software Developer</h2>
+                <div class="content">
+                    <span class="icon is-large">
+                        <a href="https://github.com/OfficerHalf/" target="_blank"><i class="fa fa-github fa-4x main-icon"></i></a>
+                        <a href="https://www.linkedin.com/in/nathan-r-smith/" target="_blank"><i class="fa fa-linkedin fa-4x main-icon"></i></a>
+                        <a href="https://www.last.fm/user/OfficerHalf" target="_blank"><i class="fa fa-lastfm fa-4x main-icon"></i></a>
+                        <a href="http://steamcommunity.com/id/officerhalf/" target="_blank"><i class="fa fa-steam-square fa-4x main-icon"></i></a>
+                        <a href="mailto:nathan@nathan-smith.org" target="_blank"><i class="fa fa-envelope fa-4x main-icon"></i></a>
+                    </span>
+                </div>
+            </div>
+        </section>
+        <section id="about-page" class="section is-large">
+            <div class="container has-text-centered">
+                <h1 class="title" id="about-title">about me</h1>
+                <p>I am an Associate Software Developer at Bentley Systems, having graduated from Mississippi State University with my Bachelors degree in Software Engineering in 2016, and my Masters degree in Computer Science in 2017.</p>
+                <p>I have a passion for open source software, music, and video games.</p>
+                <a class="button">Résumé</a>
+            </div>
+        </section>
+        <section id="projects-page" class="section is-large">
+            <div class="container has-text-centered">
+                <h1 class="title">projects</h1>
+                <div>
+                    <a href="https://github.com/OfficerHalf/pyBullet" target="_blank" class="button">pyBullet</a>
+                    <p>A task notification and automation script set for Pushbullet, written in Python.</p>
+                </div>
+                <div>
+                    <a href="https://github.com/OfficerHalf/pyWriter" target="_blank" class="button">eWriter</a>
+                    <p>An open source and cross-platform clone of yWriter. Originally to be written in Python, now as an Electron app.</p>
+                </div>
+                <div>
+                    <a href="https://github.com/OfficerHalf/pyd20" target="_blank" class="button">pyd20</a>
+                    <p>A command-line dice roller with many options and arguments, for playing tabletop RPGs.</p>
+                </div>
+            </div>
+        </section>
+        <section id="contact-page" class="section is-medium">
+            <div class="container has-text-centered">
+                <h1 class="title" id="contact-title" >contact me</h1>
+                <p>nathan@nathan-smith.org</p>
+                <div class="content">
+                    <a href="https://github.com/OfficerHalf/" target="_blank" class="button"><i class="fa fa-github"></i>&nbsp GITHUB</a>
+                    <a href="https://www.linkedin.com/in/nathan-r-smith/" target="_blank" class="button"><i class="fa fa-linkedin"></i>&nbsp LINKEDIN</a>
+                    <a href="https://www.last.fm/user/OfficerHalf" target="_blank" class="button"><i class="fa fa-lastfm"></i>&nbsp LAST.FM</a>
+                    <a href="http://steamcommunity.com/id/officerhalf/" target="_blank" class="button"><i class="fa fa-steam-square"></i>&nbsp STEAM</a>
+                    <a href="mailto:nathan@nathan-smith.org" target="_blank" class="button"><i class="fa fa-envelope"></i>&nbsp EMAIL</a>
+                </div>
+            </div>
+        </section>
     </div>
+    <script src="js/noframework.waypoints.min.js"></script>
+    <script src="js/smooth-scroll.js"></script>
+    <script>var scroll = new SmoothScroll('a[href*="#"]', {header: '#navigation'});</script>
     <script src="js/nav.js"></script>
+    <script src="js/waypoints.js"></script>
 </body>
 </html>

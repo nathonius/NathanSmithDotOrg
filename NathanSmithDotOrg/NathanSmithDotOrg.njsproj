@@ -40,9 +40,16 @@
     <TypeScriptCompile Include="server.ts" />
     <None Include="officerhalf - Web Deploy.pubxml" />
     <Content Include="package.json" />
+    <Content Include="public\css\main.css">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="public\css\nav.css">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="public\img\Colvard2.jpg" />
+    <Content Include="public\img\Colvard3.jpg" />
+    <Content Include="public\img\Cowbell.jpg" />
+    <Content Include="public\img\Cowbell2.jpg" />
     <Content Include="public\Officerhalf.github.io\css\custom.css" />
     <Content Include="public\Officerhalf.github.io\css\grayscale.css" />
     <Content Include="public\Officerhalf.github.io\css\grayscale.min.css" />
@@ -114,6 +121,8 @@
     <Folder Include="public\" />
     <Folder Include="public\js\" />
     <Folder Include="public\css\" />
+    <Folder Include="public\img\" />
+    <Folder Include="public\sass\" />
     <Folder Include="public\Officerhalf.github.io\" />
     <Folder Include="public\Officerhalf.github.io\css\" />
     <Folder Include="public\Officerhalf.github.io\files\" />
@@ -136,6 +145,11 @@
     <Folder Include="Scripts\typings\node\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="public\js\noframework.waypoints.min.js" />
+    <Compile Include="public\js\smooth-scroll.js" />
+    <Compile Include="public\js\waypoints.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="public\Officerhalf.github.io\js\grayscale.js" />
     <Compile Include="public\Officerhalf.github.io\js\grayscale.min.js" />
     <Compile Include="public\Officerhalf.github.io\js\Nathan Smith_files\bootstrap.min.js" />

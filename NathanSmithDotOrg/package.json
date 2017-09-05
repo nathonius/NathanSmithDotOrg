@@ -16,6 +16,8 @@
     "@types/inert": "^4.2.3",
     "bulma": "^0.5.1",
     "hapi": "^16.5.2",
-    "inert": "^4.2.1"
+    "inert": "^4.2.1",
+    "smooth-scroll": "^12.1.4",
+    "waypoints": "^4.0.1"
   }
 }
