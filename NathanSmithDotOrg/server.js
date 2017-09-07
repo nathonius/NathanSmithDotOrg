@@ -54,6 +54,17 @@ server.route({
 });
 server.route({
     method: 'GET',
+    path: '/files/{path*}',
+    handler: {
+        directory: {
+            path: './public/files',
+            listing: false,
+            index: false
+        }
+    }
+});
+server.route({
+    method: 'GET',
     path: '/old',
     handler: function (request, reply) {
         reply.file('./public/Officerhalf.github.io/index.html');

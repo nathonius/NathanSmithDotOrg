@@ -46,6 +46,7 @@
     <Content Include="public\css\nav.css">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="public\files\nathan-smith-resume-2017.pdf" />
     <Content Include="public\img\Colvard2.jpg" />
     <Content Include="public\img\Colvard3.jpg" />
     <Content Include="public\img\Cowbell.jpg" />
@@ -122,6 +123,7 @@
     <Folder Include="public\js\" />
     <Folder Include="public\css\" />
     <Folder Include="public\img\" />
+    <Folder Include="public\files\" />
     <Folder Include="public\sass\" />
     <Folder Include="public\Officerhalf.github.io\" />
     <Folder Include="public\Officerhalf.github.io\css\" />
