@@ -34,18 +34,26 @@
         </div>
     </nav>
     <div class="main">
+        <!--<i class="fa fa-chevron-circle-down next-button" onclick="goTo()"></i>-->
         <section id="main-page" class="section">
-            <div class="container has-text-centered">
+            <div id="main-container" class="container has-text-centered">
                 <h1 class="title main-title">nathan smith</h1>
                 <h2 class="subtitle main-subtitle">Software Developer</h2>
-                <div class="content">
+                <div class="content" id="icons">
                     <span class="icon is-large">
-                        <a href="https://github.com/OfficerHalf/" target="_blank"><i class="fa fa-github fa-4x main-icon"></i></a>
-                        <a href="https://www.linkedin.com/in/nathan-r-smith/" target="_blank"><i class="fa fa-linkedin fa-4x main-icon"></i></a>
-                        <a href="https://www.last.fm/user/OfficerHalf" target="_blank"><i class="fa fa-lastfm fa-4x main-icon"></i></a>
-                        <a href="http://steamcommunity.com/id/officerhalf/" target="_blank"><i class="fa fa-steam-square fa-4x main-icon"></i></a>
-                        <a href="mailto:nathan@nathan-smith.org" target="_blank"><i class="fa fa-envelope fa-4x main-icon"></i></a>
+                        <a href="https://github.com/OfficerHalf/" target="_blank"><i class="fa fa-github fa-4x main-icon" onmouseover="showLabel('github')" onmouseout="showLabel()"></i></a>
+                        <a href="https://www.linkedin.com/in/nathan-r-smith/" target="_blank"><i class="fa fa-linkedin fa-4x main-icon" onmouseover="showLabel('linkedin')" onmouseout="showLabel()"></i></a>
+                        <a href="https://www.last.fm/user/OfficerHalf" target="_blank"><i class="fa fa-lastfm fa-4x main-icon" onmouseover="showLabel('lastfm')" onmouseout="showLabel()"></i></a>
+                        <a href="http://steamcommunity.com/id/officerhalf/" target="_blank"><i class="fa fa-steam-square fa-4x main-icon" onmouseover="showLabel('steam')" onmouseout="showLabel()"></i></a>
+                        <a href="mailto:nathan@nathan-smith.org" target="_blank"><i class="fa fa-envelope fa-4x main-icon" onmouseover="showLabel('email')" onmouseout="showLabel()"></i></a>
                     </span>
+                </div>
+                <div class="content" id="icon-labels">
+                    <span class="icon-label" id="icon-label-github">GitHub</span>
+                    <span class="icon-label" id="icon-label-linkedin">LinkedIn</span>
+                    <span class="icon-label" id="icon-label-lastfm">Last.fm</span>
+                    <span class="icon-label" id="icon-label-steam">Steam</span>
+                    <span class="icon-label" id="icon-label-email">Email</span>
                 </div>
             </div>
         </section>
@@ -54,7 +62,7 @@
                 <h1 class="title" id="about-title">about me</h1>
                 <p>I am an Associate Software Developer at Bentley Systems, having graduated from Mississippi State University with my Bachelors degree in Software Engineering in 2016, and my Masters degree in Computer Science in 2017.</p>
                 <p>I have a passion for open source software, music, and video games.</p>
-                <a class="button" href="files/nathan-smith-resume-2017.pdf">Résumé</a>
+                <a class="button" href="files/nathan-smith-resume-2017.pdf" target="_blank">Résumé</a>
             </div>
         </section>
         <section id="projects-page" class="section is-large">

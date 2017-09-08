@@ -81,3 +81,9 @@ a.navbar-item.is-active:hover {
     flex-direction: column;
     justify-content: center;
 }
+
+#icon-labels {
+    position: absolute;
+    left: 0vw;
+    right: 0vw;
+}
