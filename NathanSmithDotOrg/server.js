@@ -1,13 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Hapi = require("hapi");
-var Inert = require("inert");
-var server = new Hapi.Server();
+const Hapi = require("hapi");
+const Inert = require("inert");
+const server = new Hapi.Server();
 server.connection({
     host: process.env.HOST || 'localhost',
     port: process.env.PORT || 8080
 });
-server.register(Inert, function () { });
+server.register(Inert, () => { });
 server.route({
     method: 'GET',
     path: '/ghp/{path*}',
@@ -77,7 +77,7 @@ server.route({
         reply.file('./public/index.html');
     }
 });
-server.start(function (err) {
+server.start((err) => {
     if (err) {
         throw err;
     }

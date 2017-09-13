@@ -29,6 +29,19 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
+    <TypeScriptTarget>ES6</TypeScriptTarget>
+    <TypeScriptJSXEmit>None</TypeScriptJSXEmit>
+    <TypeScriptModuleKind>CommonJS</TypeScriptModuleKind>
+    <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
+    <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
+    <TypeScriptRemoveComments>False</TypeScriptRemoveComments>
+    <TypeScriptOutFile />
+    <TypeScriptOutDir />
+    <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
+    <TypeScriptNoEmitOnError>True</TypeScriptNoEmitOnError>
+    <TypeScriptSourceMap>True</TypeScriptSourceMap>
+    <TypeScriptMapRoot />
+    <TypeScriptSourceRoot />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <DebugSymbols>true</DebugSymbols>
@@ -149,9 +162,6 @@
   <ItemGroup>
     <Compile Include="public\js\noframework.waypoints.min.js" />
     <Compile Include="public\js\smooth-scroll.js" />
-    <Compile Include="public\js\waypoints.js">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="public\Officerhalf.github.io\js\grayscale.js" />
     <Compile Include="public\Officerhalf.github.io\js\grayscale.min.js" />
     <Compile Include="public\Officerhalf.github.io\js\Nathan Smith_files\bootstrap.min.js" />
