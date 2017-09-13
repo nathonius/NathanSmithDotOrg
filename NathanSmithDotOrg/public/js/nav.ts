@@ -1,5 +1,6 @@
 ﻿declare var SmoothScroll: any;
 declare var Waypoint: any;
+interface NodeListOf<TNode extends Node> extends Array<TNode> { }
 
 var myscroll = new SmoothScroll('a[href*="#"]', { header: '#navigation' });
 

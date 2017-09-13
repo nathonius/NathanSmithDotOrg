@@ -23,7 +23,8 @@ function showLabel(btn) {
     if (btn)
         var anchor = document.getElementById('icon-label-' + btn);
     var allLabels = document.querySelectorAll('.icon-label');
-    for (var each of allLabels) {
+    for (var _i = 0, allLabels_1 = allLabels; _i < allLabels_1.length; _i++) {
+        var each = allLabels_1[_i];
         each.classList.remove('is-shown');
     }
     if (btn)
@@ -32,7 +33,8 @@ function showLabel(btn) {
 var nextAnchor = "about-page";
 function toggleActive(anchor) {
     var all = document.querySelectorAll('.n-nav-link');
-    for (var each of all) {
+    for (var _i = 0, all_1 = all; _i < all_1.length; _i++) {
+        var each = all_1[_i];
         each.classList.remove('is-active');
     }
     var thisOne = document.getElementById(anchor);
@@ -49,7 +51,8 @@ var waypointMain = new Waypoint({
     element: document.getElementById('main-page'),
     handler: function () {
         var all = document.querySelectorAll('.n-nav-link');
-        for (var each of all) {
+        for (var _i = 0, all_2 = all; _i < all_2.length; _i++) {
+            var each = all_2[_i];
             each.classList.remove('is-active');
         }
         nextAnchor = "about-page";
