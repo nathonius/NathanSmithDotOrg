@@ -76,14 +76,14 @@ server.route({
 });
 server.route({
     method: 'GET',
-    path: '/textmode',
+    path: '/old',
     handler: function (request, reply) {
-        reply.file('./public/textmode/index.html');
+        reply.file('./public/index.html');
     }
 });
 server.route({
     method: 'GET',
-    path: '/old',
+    path: '/older',
     handler: function (request, reply) {
         reply.file('./public/Officerhalf.github.io/index.html');
     }
@@ -92,7 +92,7 @@ server.route({
     method: 'GET',
     path: '/',
     handler: function (request, reply) {
-        reply.file('./public/index.html');
+        reply.file('./public/textmode/index.html');
     }
 });
 server.start(function (err) {
