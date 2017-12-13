@@ -21,6 +21,17 @@ server.route({
 });
 server.route({
     method: 'GET',
+    path: '/textmode/{path*}',
+    handler: {
+        directory: {
+            path: './public/textmode',
+            listing: false,
+            index: false
+        }
+    }
+});
+server.route({
+    method: 'GET',
     path: '/js/{path*}',
     handler: {
         directory: {
@@ -61,6 +72,13 @@ server.route({
             listing: false,
             index: false
         }
+    }
+});
+server.route({
+    method: 'GET',
+    path: '/textmode',
+    handler: function (request, reply) {
+        reply.file('./public/textmode/index.html');
     }
 });
 server.route({
