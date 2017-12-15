@@ -35,6 +35,20 @@ h2 {
     max-width: 800px;
 }
 
+.link a:hover {
+    -webkit-transform: scale(1.05);
+       -moz-transform: scale(1.05);
+        -ms-transform: scale(1.05);
+         -o-transform: scale(1.05);
+            transform: scale(1.05);  
+  }
+  
+.link a {
+    display: inline-block;
+    -webkit-transition: all 0.1s linear;
+            transition: all 0.1s linear;
+  }
+
 @media (max-width: 800px) {
     #layout { max-width: 100%;}
 }
