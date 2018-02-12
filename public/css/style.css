@@ -110,10 +110,11 @@ nav {
     display: none;
 }
 
-.hamburger:hover, .hamburger:active {
+.hamburger:hover, .hamburger:active, .hamburger:focus {
     cursor: pointer;
     --burgerColor: var(--blue);
     transition: background var(--linkHover);
+    outline: 0;
 }
 
 .hamburger-inner {
