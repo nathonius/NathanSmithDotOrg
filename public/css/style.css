@@ -31,10 +31,15 @@
     --hero: calc(var(--page) / 2);
     --project: 300px;
     --sidebar: 100px;
+    --burger: 40px;
+    --patty: 4px;
 
     /* Timings */
     --linkHover: .25s;
     --longHover: calc(var(--linkHover) * 2);
+
+    /* Colors */
+    --burgerColor: var(--white);
 }
 
 html {
@@ -93,11 +98,68 @@ nav {
     background: var(--darkgrey);
 }
 
+/* Hamburger Styling */
+.hamburger {
+    z-index: 2;
+    height: var(--burger) !important;
+    width: var(--burger) !important;
+    margin: 0;
+    border: 0;
+    padding: 4px;
+    background-color: inherit;
+    display: none;
+}
+
+.hamburger:hover {
+    cursor: pointer;
+    --burgerColor: var(--blue);
+    transition: background var(--linkHover);
+}
+
+.hamburger-inner {
+    z-index: 3;
+    display: block;
+    position: absolute;
+    background-color: var(--burgerColor);
+    transition: background var(--linkHover), transform var(--linkHover), top var(--linkHover);
+    width: var(--burger);
+    height: var(--patty);
+    border-radius: var(--patty);
+}
+
+.hamburger-middle {
+    top: calc(50% - (var(--patty)/2));
+}
+
+.hamburger-top {
+    top: 12px;
+}
+
+.hamburger-bottom {
+    bottom: 12px;
+}
+
+.hamburger-top.is-active {
+    transform: rotate(45deg);
+    top: calc(50% - (var(--patty)/2));
+}
+
+.hamburger-middle.is-active {
+    background-color: transparent;
+}
+
+.hamburger-bottom.is-active {
+    transform: rotate(-45deg);
+    top: calc(50% - (var(--patty)/2));
+}
+
 nav > ul {
     /* Replace Default List Padding/Margin */
     padding: 0px;
     margin: 0px;
     height: var(--header);
+    position: fixed;
+    width: 100%;
 
     /* Desktop Grid */
     display: grid;
@@ -170,12 +232,14 @@ div.content {
 }
 
 .home h1 {
+    text-align: center;
     font-family: "Pacifico", serif;
     font-size: 6em;
     margin: 0px;
 }
 
 .home h2 {
+    text-align: center;
     font-size: 3em;
     margin: 0px;
 }
@@ -324,4 +388,24 @@ a.contact-link:link, a.contact-link:visited {
 }
 a.contact-link:hover, a.contact-link:active {
     color: var(--blue);
+}
+
+@media only screen and (max-width: 768px) {
+    :root {
+        --sidebar: 0px;
+    }
+    .hamburger {
+        display: inline-block;
+    }
+    nav > ul.is-hidden {
+        transform: translateY(calc(var(--header) * -5));
+    }
+    nav > ul {
+        grid-auto-flow: row;
+        align-content: start;
+        transition: transform 0.2s ease-out;
+    }
+    nav > ul > li {
+        background: var(--darkgrey);
+    }
 }

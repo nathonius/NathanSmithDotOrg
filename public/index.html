@@ -15,7 +15,12 @@
 
 <body>
     <nav>
-        <ul>
+        <button class="hamburger" type="button">
+            <span class="hamburger-inner hamburger-top"></span>
+            <span class="hamburger-inner hamburger-middle"></span>
+            <span class="hamburger-inner hamburger-bottom"></span>
+        </button>
+        <ul id="nav-list" class="is-hidden">
             <li>
                 <a data-scroll href="#">Home</a>
             </li>
@@ -120,12 +125,22 @@
             window.open(this.getAttribute('the-url'), '_blank');
         }
 
+        function toggleBurger(burger) {
+            const patties = document.querySelectorAll(".hamburger-inner");
+            const navList = document.querySelector("#nav-list");
+            patties.forEach(patty => patty.classList.toggle("is-active"));
+            navList.classList.toggle("is-hidden");
+        }
+
         const scroll = new SmoothScroll('a[href*="#"]', {
             header: "nav"
         });
 
         const projects = document.querySelectorAll(".project");
         projects.forEach(project => project.addEventListener('click', clickLink));
+
+        const burger = document.querySelector(".hamburger");
+        burger.addEventListener('click', toggleBurger);
     </script>
 </body>
 
