@@ -1,54 +1,327 @@
-@font-face {
-    font-family: "vulf";
-    src: url("../fonts/Vulf_Mono-Italic_web.woff2") format("woff2"),
-         url("../fonts/Vulf_Mono-Italic_web.woff") format("woff"),
-         url("../fonts/Vulf_Mono-Italic_web.ttf") format("truetype");
+:root {
+    --zaccentBlue: #007ac1;
+    --zaccentBlue50: #007ac132;
+    --zblack: #23252b;
+    --zblack50: #23252b32;
+    --zsalmon: #f78b6c;
+    --zsalmon50: #f78b6c32;
+    --zgrey: #565554;
+    --zgrey50: #56555432;
+    --zblue: #0a2239;
+    --zblue50: #0a223932;
+    --zblue2: #009fb7;
+
+    /* Colors */
+    --black: #272727;
+    --yellow: #fed766;
+    --blue: #2eb0c4;
+    --grey: #696773;
+    --grey50: #69677383;
+    --grey20: #69677325;
+    --midgrey: #4b4a54;
+    --darkgrey: #43424a;
+    --darkgrey20: #43424a63;
+    --white: #f9f9fa;
+    --white50: #f9f9fa77;
+    --white20: #f9f9fa44;
+
+    /* Measures */
+    --header: 50px;
+    --page: calc(100vh - var(--header));
+    --hero: calc(var(--page) / 2);
+    --project: 300px;
+    --sidebar: 100px;
+
+    /* Timings */
+    --linkHover: .25s;
+    --longHover: calc(var(--linkHover) * 2);
 }
 
 html {
-    font-size: 100%;
-    font-family: "vulf", "serif";
+    /* border-box box model allows us to add padding and border to our elements without increasing their size */
+    box-sizing: border-box;
+    color: var(--black);
+    background: var(--white);
+    font-size: 15px;
+    font-family: "Roboto", "Open Sans", sans-serif;
+    padding: 0px;
+    margin: 0px;
+    overflow-x: hidden;
 }
 
-h1 {
-    font-size: 2.5rem;
+body {
+    padding: 0px;
+    margin: 0px;
 }
 
-h2 {
-    font-size: 1.5rem;
+/*
+  WAT IS THIS?!
+  We inherit box-sizing: border-box; from our <html> selector
+  Apparently this is a bit better than applying box-sizing: border-box; directly to the * selector
+*/
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
 }
 
-.title {
-    font-size: 2.5rem;
-    font-weight: bold;
+img {
+    width: 100%;
 }
 
-.subtitle {
-    font-size: 2rem;
-    font-weight: bold;
+h2, h3 {
+    font-family: "Quicksand", sans-serif
 }
 
-#layout {
-    margin-left: auto;
-    margin-right: auto;
+/* Link Colors */
+a:link, a:visited {
+    color: var(--blue);
+}
+a:hover, a:active {
+    color: var(--blue);
+}
+
+/* Nav Styling */
+nav {
+    /* Fix Header */
+    position: fixed;
+    top: 0px;
+    width: 100vw;
+    height: var(--header);
+
+    /* Style */
+    background: var(--darkgrey);
+}
+
+nav > ul {
+    /* Replace Default List Padding/Margin */
+    padding: 0px;
+    margin: 0px;
+    height: var(--header);
+
+    /* Desktop Grid */
+    display: grid;
+    grid-auto-flow: column;
+
+    /* Center List Items */
+    justify-items: center;
+    align-content: center;
+}
+
+nav > ul > li {
+    width: 100%;
+    height: var(--header);
     text-align: center;
-    max-width: 800px;
+    list-style: none;
+
+    /* Background Transition */
+    transition: background var(--linkHover);
 }
 
-.link a:hover {
-    -webkit-transform: scale(1.05);
-       -moz-transform: scale(1.05);
-        -ms-transform: scale(1.05);
-         -o-transform: scale(1.05);
-            transform: scale(1.05);  
-  }
-  
-.link a {
-    display: inline-block;
-    -webkit-transition: all 0.1s linear;
-            transition: all 0.1s linear;
-  }
+nav > ul > li:hover {
+    background: var(--midgrey);
+}
 
-@media (max-width: 800px) {
-    #layout { max-width: 100%;}
+nav > ul > li > a {
+    /* Style Nav Links */
+    font-family: "Quicksand", sans-serif;
+    font-size: 1.5em;
+    font-weight: 700;
+    text-decoration: none;
+    height: var(--header);
+    text-transform: uppercase;
+
+    /* Color Transition */
+    transition: color var(--linkHover);
+
+    /* Center Content Vertically */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Nav Link Colors */
+nav > ul > li > a:link, nav > ul > li > a:visited {
+    color: var(--white);
+}
+nav > ul > li:hover > a, nav > ul > li > a:active {
+    color: var(--blue);
+}
+
+div.wrapper {
+    width: 100vw;
+    padding-top: var(--header);
+}
+
+div.content {
+    width: 100%;
+}
+
+/* Home Styling */
+.home {
+    /* Sizing */
+    min-height: var(--page);
+
+    /* Center Headers */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.home h1 {
+    font-family: "Pacifico", serif;
+    font-size: 6em;
+    margin: 0px;
+}
+
+.home h2 {
+    font-size: 3em;
+    margin: 0px;
+}
+
+/* Section Styling */
+.section {
+    width: 100%;
+    padding-left: var(--sidebar);
+    padding-right: var(--sidebar);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: var(--page);
+    text-align: center;
+}
+
+.large {
+    min-height: var(--page) !important;
+}
+
+.section h2 {
+    font-size: 2.5em;
+    margin: 0px;
+}
+
+.section-content {
+    padding: 20px;
+}
+
+/* About Styling */
+.section-about {
+    background: var(--grey);
+    background-image: url('../img/mike-dennler-173199.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.section-about .section-content {
+    background: var(--white50);
+}
+
+/* Project Styling */
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--project), 1fr));
+    grid-gap: 20px;
+    align-content: center;
+    margin-top: 15px;
+}
+
+.project {
+    /* Badges */
+    --badge-small: 7px;
+    --badge-hover: calc(var(--badge-small) * 2.5);
+    transition: box-shadow var(--linkHover);
+
+    /* Layout */
+    display: grid;
+    grid-template-areas:
+    "badge icon title"
+    "badge icon content";
+    align-items: center;
+
+    /* Style */
+    background: var(--grey20);
+    padding-right: var(--badge-hover);
+}
+
+.project:hover {
+    /* Link */
+    cursor: pointer;
+    box-shadow: 2px 2px 4px var(--grey50);
+}
+
+.project span.badge {
+    grid-area: badge;
+    height: 100%;
+    width: var(--badge-hover);
+    border-left: var(--badge-small) solid var(--yellow);
+    transition: border-left var(--linkHover) linear;
+}
+
+.project:hover span.badge {
+    border-left: var(--badge-hover) solid var(--yellow);
+}
+
+.project img.icon {
+    grid-area: icon;
+    max-width: 100px;
+}
+
+.project h3 {
+    font-size: 1.5em;
+    margin: 0px;
+    grid-area: title;
+    padding-top: 10px;
+}
+
+.project .description {
+    grid-area: content;
+    padding-bottom: 10px;
+}
+
+/* Contact Styling */
+.section-contact {
+    background: var(--grey);
+    background-image: url(../img/Cowbell.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: var(--white);
+}
+
+.section-contact .section-content {
+    background: var(--darkgrey20);
+}
+
+.section-contact .contact-links {
+    display: grid;
+    grid-auto-flow: column;
+    font-size: 20px;
+}
+
+.section-contact a {
+    transition: color var(--linkHover);
+    text-decoration: none;
+}
+
+.section-contact a:hover {
+    color: var(--white);
+}
+
+.section-contact a.contact-link {
+    padding: 10px;
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    grid-gap: 5px;
+}
+
+/* Contact Link Colors */
+a.contact-link:link, a.contact-link:visited {
+    color: var(--white);
+}
+a.contact-link:hover, a.contact-link:active {
+    color: var(--blue);
 }

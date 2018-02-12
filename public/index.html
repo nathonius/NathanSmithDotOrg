@@ -1,41 +1,132 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
+
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nathan Smith Dot Org</title>
-    <link rel="stylesheet" href="css/style.css"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Nathan Smith</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico|Quicksand:400,700|Roboto" rel="stylesheet">
+    <script src="js/smooth-scroll.polyfills.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.0.6/js/brands.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.0.6/js/fontawesome.js"></script>
 </head>
+
 <body>
-    <div id="layout" class="link">
-        <div id="main">
-            <div class="title">nathan smith</div>
-            <div class="subtitle">software developer</div>
-        </div>
-        <div id="about">
-            <p><h2>about me</h2></p>
-            <p>I am an Associate Software Developer at Bentley Systems, having graduated from Mississippi State
-               University with my Bachelors degree in Software Engineering in 2016, and my Masters degree in Computer Science in 2017.</p> 
-            <p>I have a passion for open source software, music, and video games.</p>
-            <p><a href="files/nathan-smith-resume-2017.pdf" target="_blank">Résumé</a></p>
-        </div>
-        <div id="projects">
-            <p><h2>projects</h2></p>
-            <a href="https://github.com/OfficerHalf/pyBullet" target="_blank">pyBullet</a>
-            <p>A task notification and automation script set for Pushbullet, written in Python.</p>
-            <a href="https://github.com/OfficerHalf/pyWriter" target="_blank">pyWriter</a>
-            <p>A work in progress open source and cross-platform clone of yWriter, written in Python.</p>
-            <a href="https://github.com/OfficerHalf/pyd20" target="_blank">pyd20</a>
-            <p>A command-line dice roller with many options and arguments, for playing tabletop RPGs.</p>
-        </div>
-        <div id="contact">
-            <p><h2>contact me</h2></p>
-            <p>I can be reached at <a href="mailto:nathan@nathan-smith.org" target="_blank">nathan@nathan-smith.org</a>, or on any of these platforms.</p>
-            <a href="https://github.com/OfficerHalf/" target="_blank" >GitHub</a>
-            <a href="https://www.linkedin.com/in/nathan-r-smith/" target="_blank">LinkedIn</a>
-            <a href="https://www.last.fm/user/OfficerHalf" target="_blank">last.fm</a>
-            <a href="http://steamcommunity.com/id/officerhalf/" target="_blank">Steam</a>
+    <nav>
+        <ul>
+            <li>
+                <a data-scroll href="#">Home</a>
+            </li>
+            <li>
+                <a data-scroll href="#about">About</a>
+            </li>
+            <li>
+                <a data-scroll href="#projects">Projects</a>
+            </li>
+            <li>
+                <a data-scroll href="#contact">Contact</a>
+            </li>
+            <!-- <li>
+                <a data-scroll href="blog">Blog</a>
+            </li> -->
+        </ul>
+    </nav>
+    <div class="wrapper">
+        <div class="content">
+            <div class="home" id="home">
+                <h1>Nathan Smith</h1>
+                <h2>Software Developer</h2>
+            </div>
+            <div class="section section-about" id="about">
+                <div class="section-content">
+                    <h2>about me</h2>
+                    <p>I am an Associate Software Developer at Bentley Systems, having graduated from Mississippi State University
+                        with my Bachelors degree in Software Engineering in 2016, and my Masters degree in Computer Science
+                        in 2017.
+                    </p>
+                    <p>I have a passion for open source software, music, and video games.</p>
+                </div>
+            </div>
+            <div class="section section-projects" id="projects">
+                <h2>projects</h2>
+                <div class="projects">
+                    <div class="project" the-url="https://github.com/OfficerHalf/pyBullet">
+                        <span class="badge"></span>
+                        <h3>pyBullet</h3>
+                        <div class="description">
+                            <p>A task notification and automation script set for Pushbullet, written in Python.</p>
+                            <p>Status: Complete</p>
+                        </div>
+                    </div>
+                    <div class="project" the-url="https://github.com/OfficerHalf/pyWriter">
+                        <span class="badge"></span>
+                        <h3>pyWriter</h3>
+                        <div class="description">
+                            <p>A work in progress open source and cross-platform clone of yWriter, written in Python.</p>
+                            <p>Status: On Hold</p>
+                        </div>
+                    </div>
+                    <div class="project" the-url="https://github.com/OfficerHalf/pyd20">
+                        <span class="badge"></span>
+                        <img src="img/ic_launcher.svg" alt="pyd20 icon" class="icon">
+                        <h3>pyd20</h3>
+                        <div class="description">
+                            <p>A command-line dice roller with many options and arguments, for playing tabletop RPGs.</p>
+                            <p>Status: Complete</p>
+                        </div>
+                    </div>
+                    <div class="project" the-url="https://github.com/OfficerHalf/parmesan">
+                        <span class="badge"></span>
+                        <h3>parmesan</h3>
+                        <div class="description">
+                            <p>A static site template/content generation script set. The goal was to monitor a selection of
+                                MultiMarkdown files and use Jinja templates to generate a static site from them.</p>
+                            <p>Status: Abandoned</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section section-contact" id="contact">
+                <div class="section-content">
+                    <h2>contact me</h2>
+                    <p>I can be reached at
+                        <a href="mailto:nathan@nathan-smith.org">nathan@nathan-smith.org</a>, or on any of these platforms.</p>
+                    <div class="contact-links">
+                        <a class="contact-link" href="https://github.com/OfficerHalf">
+                            <i class="fab fa-2x fa-github"></i>
+                            <span>GitHub</span>
+                        </a>
+                        <a class="contact-link" href="https://www.linkedin.com/in/nathan-r-smith/">
+                            <i class="fab fa-2x fa-linkedin"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a class="contact-link" href="https://www.last.fm/user/OfficerHalf">
+                            <i class="fab fa-2x fa-lastfm"></i>
+                            <span>last.fm</span>
+                        </a>
+                        <a class="contact-link" href="http://steamcommunity.com/id/officerhalf/">
+                            <i class="fab fa-2x fa-steam"></i>
+                            <span>Steam</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    <script>
+        function clickLink(project) {
+            window.open(this.getAttribute('the-url'), '_blank');
+        }
+
+        const scroll = new SmoothScroll('a[href*="#"]', {
+            header: "nav"
+        });
+
+        const projects = document.querySelectorAll(".project");
+        projects.forEach(project => project.addEventListener('click', clickLink));
+    </script>
 </body>
+
 </html>

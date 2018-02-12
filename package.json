@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "server": "node index",
     "start": "npm run build:live",
     "build:live": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -28,5 +29,8 @@
     "nodemon": "^1.14.2",
     "ts-node": "^4.0.2",
     "typescript": "^2.6.2"
+  },
+  "dependencies": {
+    "smooth-scroll": "^12.1.5"
   }
 }
