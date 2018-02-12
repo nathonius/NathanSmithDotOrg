@@ -392,7 +392,7 @@ a.contact-link:hover, a.contact-link:active {
 
 @media only screen and (max-width: 768px) {
     :root {
-        --sidebar: 0px;
+        --sidebar: 20px;
     }
     .hamburger {
         display: inline-block;
