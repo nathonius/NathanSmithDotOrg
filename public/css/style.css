@@ -1,16 +1,4 @@
 :root {
-    --zaccentBlue: #007ac1;
-    --zaccentBlue50: #007ac132;
-    --zblack: #23252b;
-    --zblack50: #23252b32;
-    --zsalmon: #f78b6c;
-    --zsalmon50: #f78b6c32;
-    --zgrey: #565554;
-    --zgrey50: #56555432;
-    --zblue: #0a2239;
-    --zblue50: #0a223932;
-    --zblue2: #009fb7;
-
     /* Colors */
     --black: #272727;
     --yellow: #fed766;
@@ -29,7 +17,7 @@
     --header: 50px;
     --page: calc(100vh - var(--header));
     --hero: calc(var(--page) / 2);
-    --project: 300px;
+    --project: 400px;
     --sidebar: 100px;
     --burger: 40px;
     --patty: 4px;
@@ -286,14 +274,17 @@ div.content {
 
 /* Project Styling */
 .projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(var(--project), 1fr));
-    grid-gap: 20px;
-    align-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     margin-top: 15px;
 }
 
 .project {
+    flex-grow: 1;
+    max-width: var(--project);
+    margin: 10px;
+
     /* Badges */
     --badge-small: 7px;
     --badge-hover: calc(var(--badge-small) * 2.5);
