@@ -1,0 +1,71 @@
+html {
+    font-family: Cambria, Cochin, Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+
+body {
+    margin: 50px auto;
+    max-width: 600px;
+}
+
+p {
+    line-height: 1.8;
+}
+
+#header {
+    display: inline-block;
+    margin-bottom: 40px;
+    color: var(--grey20);
+    transition: color var(--linkHover);
+    text-decoration: none;
+}
+
+#header:hover {
+    color: var(--black);
+    cursor: pointer;
+}
+
+#arrow {
+    margin-bottom: -2px;
+}
+
+a.post-link {
+    --badge-small: 3px;
+    --badge-hover: calc(var(--badge-small) * 2.5);
+    color: var(--black);
+    width: 100%;
+    margin: 0px;
+    padding: 6px;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-gap: 0px 40px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    transition: background var(--linkHover);
+    text-decoration: none;
+}
+
+a.post-link:hover {
+    background: var(--grey20);
+    color: var(--black);
+    cursor: pointer;
+}
+
+a.post-link span.badge {
+    padding: 0;
+    margin: 0;
+    margin-top: -2px;
+    height: var(--badge-hover);
+    border-bottom: var(--badge-small) solid var(--yellow);
+    width: 100%;
+    grid-column: 1 / -1;
+    transition: border var(--linkHover);
+}
+
+a.post-link:hover span.badge {
+    border-bottom: var(--badge-hover) solid var(--yellow);
+}
+
+.date {
+    text-align: right;
+}
