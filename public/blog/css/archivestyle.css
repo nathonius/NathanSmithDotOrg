@@ -13,8 +13,9 @@ p {
 }
 
 #header {
-    display: inline-block;
-    margin-bottom: 40px;
+    position: fixed;
+    top: 10px;
+    left: 20px;
     color: var(--grey20);
     transition: color var(--linkHover);
     text-decoration: none;

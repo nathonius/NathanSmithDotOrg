@@ -8,13 +8,29 @@
     <link rel="stylesheet" href="css/archivestyle.css">
     <script src="https://use.fontawesome.com/releases/v5.0.6/js/solid.js"></script>
     <script src="https://use.fontawesome.com/releases/v5.0.6/js/fontawesome.js"></script>
+    <script src="postlist.js"></script>
     <title>Archive</title>
 </head>
 <body>
     <a id="header" href="http://nathan-smith.org/"><i id="arrow" class="fas fa-arrow-left"></i>&nbsp&nbsp&nbspreturn to nathan-smith.org</a>
-    <a class="post-link" href="http://nathan-smith.org/blog/posts/template.html">
-        <span>template</span><span class="date">2/15/2018</span>
-        <span class="badge"></span>
-    </a>
+    <script>
+        const hrefBase = "http://nathan-smith.org/blog/posts/";
+        posts.forEach(post => {
+            let a = document.createElement("a");
+            a.classList.add("post-link");
+            a.setAttribute("href", hrefBase + post.href + ".html");
+            let title = document.createElement("span");
+            title.innerHTML = post.title;
+            let date = document.createElement("span");
+            date.classList.add("date");
+            date.innerHTML = post.date;
+            let badge = document.createElement("span");
+            badge.classList.add("badge");
+            a.appendChild(title);
+            a.appendChild(date);
+            a.appendChild(badge);
+            document.body.appendChild(a);
+        });
+    </script>
 </body>
 </html>
