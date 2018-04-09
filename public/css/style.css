@@ -4,8 +4,10 @@
     --yellow: #fed766;
     --blue: #2eb0c4;
     --grey: #696773;
+    --grey70: #696773ce;
     --grey50: #69677383;
     --grey20: #69677325;
+    --grey15: #69677311;
     --grey10: #69677309;
     --midgrey: #4b4a54;
     --darkgrey: #43424a;
@@ -18,10 +20,12 @@
     --header: 50px;
     --page: calc(100vh - var(--header));
     --hero: calc(var(--page) / 2);
-    --project: 400px;
+    --project: 360px;
     --sidebar: 100px;
     --burger: 40px;
     --patty: 4px;
+    --smallGap: 10px;
+    --medGap: 20px;
 
     /* Timings */
     --linkHover: .25s;
@@ -257,7 +261,7 @@ div.content {
 }
 
 .section-content {
-    padding: 20px;
+    padding: var(--medGap);
 }
 
 /* About Styling */
@@ -278,69 +282,87 @@ div.content {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 15px;
+    margin-top: var(--medGap);
 }
 
 .project {
     flex-grow: 1;
     max-width: var(--project);
-    margin: 10px;
+    margin: var(--smallGap);
 
-    /* Badges */
-    --badge-small: 7px;
-    --badge-hover: calc(var(--badge-small) * 2.5);
     transition: box-shadow var(--linkHover);
 
     /* Layout */
     display: grid;
+    grid-template-rows: calc(100px + var(--smallGap)) 1fr auto;
     grid-template-areas:
-    "badge icon title"
-    "badge icon content";
-    align-items: center;
+    "title"
+    "content"
+    "link";
 
     /* Style */
-    background: var(--grey20);
-    padding-right: var(--badge-hover);
+    background: var(--white);
+    box-shadow: 3px 3px 8px .8px var(--grey50);
 }
 
 .project:hover {
     /* Link */
-    cursor: pointer;
-    box-shadow: 2px 2px 4px var(--grey50);
+    box-shadow: 3px 3px 8px .8px var(--grey70);
 }
 
-.project span.badge {
-    grid-area: badge;
+.project > * {
     height: 100%;
-    width: var(--badge-hover);
-    border-left: var(--badge-small) solid var(--yellow);
-    transition: border-left var(--linkHover) linear;
+    padding-left: var(--smallGap);
+    padding-right: var(--smallGap);
 }
 
-.project:hover span.badge {
-    border-left: var(--badge-hover) solid var(--yellow);
+.project > .project-title-wrapper {
+    background: var(--grey15);
+    text-decoration: none;
+    color: var(--black);
 }
 
-.project img.icon {
-    grid-area: icon;
-    max-width: 100px;
+.project .project-title {
+    width: 100%;
+    height: 100%;
+    grid-area: title;
+    display: flex;
+    align-items: center;
 }
 
 .project h3 {
     font-size: 1.5em;
     margin: 0px;
-    grid-area: title;
-    padding-top: 10px;
+    text-align: left;
+}
+
+.project .icon {
+    max-width: 100px;
+    max-height: 100px;
+    margin-left: auto;
 }
 
 .project .description {
+    text-align: left;
     grid-area: content;
-    padding-bottom: 10px;
 }
 
-.project .more {
+.project .info {
+    grid-area: link;
+    display: flex;
+    width: 100%;
+    padding-bottom: var(--smallGap);
+}
+
+.project .info .more {
+    text-align: left;
+    margin-right: auto;
+    text-decoration: none;
+}
+
+.project .info .status {
     text-align: right;
-    position: relative;
+    margin-left: auto;
 }
 
 /* Contact Styling */
