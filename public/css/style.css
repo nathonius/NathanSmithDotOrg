@@ -316,9 +316,12 @@ div.content {
     padding-right: var(--smallGap);
 }
 
+.project a {
+    text-decoration: none;
+}
+
 .project > .project-title-wrapper {
     background: var(--grey15);
-    text-decoration: none;
     color: var(--black);
 }
 
