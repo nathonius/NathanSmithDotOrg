@@ -7,10 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Nathan Smith</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/playlists.css">
     <link href="https://fonts.googleapis.com/css?family=Pacifico|Quicksand:400,700|Roboto" rel="stylesheet">
     <script src="js/smooth-scroll.polyfills.min.js"></script>
-    <script src="https://use.fontawesome.com/releases/v5.0.6/js/brands.js"></script>
-    <script src="https://use.fontawesome.com/releases/v5.0.6/js/fontawesome.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.0.9/js/solid.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.0.9/js/brands.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.0.9/js/fontawesome.js"></script>
 </head>
 
 <body>
@@ -58,6 +60,23 @@
                 <h2>projects</h2>
                 <div class="projects">
                     <div class="project">
+                        <span class="playlistLink project-title-wrapper" style="cursor: pointer;">
+                            <div class="project-title">
+                                <h3>RPG Mood Playlists</h3>
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="spotify logo" class="icon">
+                            </div>
+                        </span>
+                        <div class="description">
+                            <p>A set of Spotify playlists to evoke specific situations or moods for use during Tabletop RPG
+                                play.
+                            </p>
+                        </div>
+                        <div class="info">
+                            <span class="playlistLink more" style="color: var(--blue); cursor: pointer;">More Info</span>
+                            <span class="status">Status: Ongoing</span>
+                        </div>
+                    </div>
+                    <div class="project">
                         <a class="project-title-wrapper" href="https://www.nexusmods.com/dungeonbuilder/mods/4">
                             <div class="project-title">
                                 <h3>Epic Isometric Token Definitions</h3>
@@ -97,7 +116,8 @@
                             </div>
                         </a>
                         <div class="description">
-                            <p>A work in progress open source and cross-platform clone of <a href="http://www.spacejock.com/yWriter6.html">yWriter</a>, written in Python.</p>
+                            <p>A work in progress open source and cross-platform clone of
+                                <a href="http://www.spacejock.com/yWriter6.html">yWriter</a>, written in Python.</p>
                         </div>
                         <div class="info">
                             <a class="more" href="https://github.com/OfficerHalf/pyWriter">More Info</a>
@@ -148,11 +168,42 @@
             </div>
         </div>
     </div>
+    <div id="playlists">
+        <span id="close" class="playlistLink"><i class="fas fa-2x fa-times"></i></span>
+        <ul id="playlist-list">
+            <li class="playlist">
+                <h3>Dungeon</h3>
+                <iframe src="https://open.spotify.com/embed/user/officerhalf/playlist/4yRrP3k4QnagQ2frwh0I4o" width="300" height="80" frameborder="0"
+                    allowtransparency="true" allow="encrypted-media"></iframe>
+            </li>
+            <li class="playlist">
+                <h3>Sea Shanties</h3>
+                <iframe src="https://open.spotify.com/embed/user/officerhalf/playlist/5k9EOzFVz5jLaoddXy1F8R" width="300" height="80" frameborder="0"
+                    allowtransparency="true" allow="encrypted-media"></iframe>
+            </li>
+            <li class="playlist">
+                <h3>Tavern</h3>
+                <iframe src="https://open.spotify.com/embed/user/officerhalf/playlist/15GIthbo9QN1tCXrZ7iPcK" width="300" height="80" frameborder="0"
+                    allowtransparency="true" allow="encrypted-media"></iframe>
+            </li>
+            <li class="playlist">
+                <h3>Battle</h3>
+                <iframe src="https://open.spotify.com/embed/user/officerhalf/playlist/1vVl5LYtsw18pzlpgbTzkw" width="300" height="80" frameborder="0"
+                    allowtransparency="true" allow="encrypted-media"></iframe>
+            </li>
+            <li class="playlist">
+                <h3>Exploration - Optimistic</h3>
+                <iframe src="https://open.spotify.com/embed/user/officerhalf/playlist/6PMdbht4CYPEynvuoVDSxu" width="300" height="80" frameborder="0"
+                    allowtransparency="true" allow="encrypted-media"></iframe>
+            </li>
+            <li class="playlist">
+                <h3>Exploration - Dark</h3>
+                <iframe src="https://open.spotify.com/embed/user/officerhalf/playlist/0bcPIhdbZnBC0pgsWQW2ln" width="300" height="80" frameborder="0"
+                    allowtransparency="true" allow="encrypted-media"></iframe>
+            </li>
+        </ul>
+    </div>
     <script>
-        function clickLink(project) {
-            window.open(this.getAttribute('the-url'), '_blank');
-        }
-
         const patties = document.querySelectorAll(".hamburger-inner");
         const navList = document.querySelector("#nav-list");
 
@@ -163,12 +214,19 @@
             }
         }
 
+        const playlistModal = document.querySelector('#playlists');
+        const playlistModalLinks = document.querySelectorAll('.playlistLink');
+
+        function togglePlaylistModal(e) {
+            e.preventDefault();
+            playlistModal.classList.toggle('active');
+        }
+
+        playlistModalLinks.forEach(modalLink => modalLink.addEventListener('click', togglePlaylistModal));
+
         const scroll = new SmoothScroll('a[href*="#"]', {
             header: "nav"
         });
-
-        const projects = document.querySelectorAll(".project");
-        projects.forEach(project => project.addEventListener('click', clickLink));
 
         const burger = document.querySelector(".hamburger");
         burger.addEventListener('click', toggleBurger);
