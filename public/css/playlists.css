@@ -1,29 +1,29 @@
  #playlists {
     --modalSize: 768px;
-    --yDist: calc(50vh - var(--modalSize));
     background: var(--white);
-    position: fixed;
+    position: absolute;
     max-width: var(--modalSize);
-    max-height: var(--modalSize);
-    top: 50%;
+    max-height: var(--page);
     left: 0;
     right: 0;
     margin-left: auto;
     margin-right: auto;
     transition: all var(--longHover);
-    transform: translateX(100vw) translateY(var(--yDist));
+    transform: translateX(100vw);
     box-shadow: 3px 3px 8px .8px var(--grey50);
 }
 
 #playlists.active {
-    transform: translateX(0) translateY(var(--yDist));
+    transform: translateX(0);
 }
 
 #playlists #close {
     transition: color var(--linkHover);
     position: relative;
-    top: var(--smallGap);
+    display: block;
+    text-align: left;
     left: var(--smallGap);
+    top: var(--smallGap);
 }
 
 #playlists #close:hover {

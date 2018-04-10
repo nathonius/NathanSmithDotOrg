@@ -27,6 +27,9 @@
     --smallGap: 10px;
     --medGap: 20px;
 
+    /* Ordering */
+    --headerZ: 100;
+
     /* Timings */
     --linkHover: .25s;
     --longHover: calc(var(--linkHover) * 2);
@@ -86,6 +89,7 @@ nav {
     top: 0px;
     width: 100vw;
     height: var(--header);
+    z-index: var(--headerZ);
 
     /* Style */
     background: var(--darkgrey);
@@ -93,7 +97,7 @@ nav {
 
 /* Hamburger Styling */
 .hamburger {
-    z-index: 2;
+    z-index: calc(var(--headerZ) + 2);
     height: var(--burger);
     width: var(--burger);
     margin: 0;
@@ -111,7 +115,7 @@ nav {
 }
 
 .hamburger-inner {
-    z-index: 3;
+    z-index: calc(var(--headerZ) + 3);
     display: block;
     position: absolute;
     background-color: var(--burgerColor);
@@ -278,6 +282,10 @@ div.content {
 }
 
 /* Project Styling */
+#projects {
+    position: relative;
+}
+
 .projects {
     display: flex;
     flex-wrap: wrap;
