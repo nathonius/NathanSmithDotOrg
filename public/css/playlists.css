@@ -1,25 +1,29 @@
-#playlists {
-    --modalSize: 32vw;
+ #playlists {
+    --modalSize: 768px;
+    --yDist: calc(50vh - var(--modalSize));
     background: var(--white);
     position: fixed;
-    width: var(--modalSize);
-    height: var(--modalSize);
+    max-width: var(--modalSize);
+    max-height: var(--modalSize);
     top: 50%;
     left: 0;
     right: 0;
-    margin: calc((var(--modalSize) / 2) * -1) auto;
+    margin-left: auto;
+    margin-right: auto;
     transition: all var(--longHover);
-    transform: translateX(100vw);
-    padding: var(--medGap);
+    transform: translateX(100vw) translateY(var(--yDist));
     box-shadow: 3px 3px 8px .8px var(--grey50);
 }
 
 #playlists.active {
-    transform: translateX(0);
+    transform: translateX(0) translateY(var(--yDist));
 }
 
 #playlists #close {
     transition: color var(--linkHover);
+    position: relative;
+    top: var(--smallGap);
+    left: var(--smallGap);
 }
 
 #playlists #close:hover {
@@ -31,19 +35,33 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    margin-top: var(--smallGap);
-    display: grid;
-    grid-gap: var(--smallGap);
+    width: 100%;
+    margin-top: var(--medGap);
+    display: flex;
+    flex-direction: column;
+}
+
+#playlist-list a {
+    width: 100%;
+    text-decoration: none;
+    transition: all var(--linkHover);
+    color: var(--black);
+    padding: var(--smallGap) var(--medGap);
+}
+
+#playlist-list a:hover {
+    color: var(--blue);
+    background: var(--grey20);
 }
 
 .playlist {
     padding: 0;
     margin: 0;
-    display: grid;
+    display: flex;
     align-items: center;
-    grid-auto-flow: column;
 }
 
-.playlist iframe {
+.playlist > span {
     margin-left: auto;
+    text-align: right;
 }
