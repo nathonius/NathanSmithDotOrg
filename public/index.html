@@ -227,7 +227,14 @@
 
         function togglePlaylistModal(e) {
             e.preventDefault();
-            playlistModal.classList.toggle('active');
+            if(!playlistModal.classList.contains('active')) {
+                playlistModal.style.display = '';
+                setTimeout(() => { playlistModal.classList.toggle('active'); }, 100);
+            }
+            else {
+                playlistModal.classList.toggle('active');
+                setTimeout(() => { playlistModal.style.display = 'none'; }, 500);
+            }
         }
 
         playlistModalLinks.forEach(modalLink => modalLink.addEventListener('click', togglePlaylistModal));

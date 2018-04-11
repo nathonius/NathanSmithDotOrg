@@ -26,6 +26,7 @@
     --patty: 4px;
     --smallGap: 10px;
     --medGap: 20px;
+    --bigGap: 100px;
 
     /* Ordering */
     --headerZ: 100;
