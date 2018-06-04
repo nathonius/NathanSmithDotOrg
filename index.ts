@@ -1,38 +1,37 @@
 import * as Hapi from "hapi";
 import * as Inert from "inert";
 
-const server: Hapi.Server = new Hapi.Server();
-server.connection({
-    host: process.env.HOST || 'localhost',
-    port: process.env.PORT || 8080
+const server: Hapi.Server = new Hapi.Server({
+    port: process.env.PORT || 8080,
+    host: process.env.HOST || "localhost"
 });
 
-server.register(Inert, function () { });
+async function provision() {
+    await server.register(Inert);
 
-server.route({
-    method: 'GET',
-    path: '/{path*}',
-    handler: {
-        directory: {
-            path: './public',
-            listing: false,
-            index: false
+    server.route({
+        method: "GET",
+        path: "/{path*}",
+        handler: {
+            directory: {
+                path: "./public",
+                listing: false,
+                index: false
+            }
         }
-    }
-});
+    });
 
-server.route({
-    method: 'GET',
-    path: '/',
-    handler: function (request, reply) {
-        reply.file('./public/index.html');
-    }
-});
+    server.route({
+        path: "/",
+        method: "GET",
+        handler: {
+            file: "./public/index.html"
+        }
+    });
 
-server.start(function (err) {
-    if (err) {
-        throw err;
-    }
-    if (server.info)
-        console.log('Server running at:', server.info.uri);
-})
+    await server.start();
+
+    console.log("Server running at:", server.info.uri);
+}
+
+provision();
