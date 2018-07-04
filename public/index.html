@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Nathan Smith</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/playlists.css">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico|Quicksand:400,700|Roboto" rel="stylesheet">
+    <script src="js/smooth-scroll.polyfills.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.0.9/js/solid.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.0.9/js/brands.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.0.9/js/fontawesome.js"></script>
+</head>
+
+<body>
+    <nav>
+        <button class="hamburger" type="button">
+            <span class="hamburger-inner hamburger-top"></span>
+            <span class="hamburger-inner hamburger-middle"></span>
+            <span class="hamburger-inner hamburger-bottom"></span>
+        </button>
+        <ul id="nav-list" class="is-hidden">
+            <li>
+                <a data-scroll href="#">Home</a>
+            </li>
+            <li>
+                <a data-scroll href="#about">About</a>
+            </li>
+            <li>
+                <a data-scroll href="#projects">Projects</a>
+            </li>
+            <li>
+                <a data-scroll href="#contact">Contact</a>
+            </li>
+            <!-- <li>
+                <a href="blog/archive.html">Blog</a>
+            </li> -->
+        </ul>
+    </nav>
+    <div class="wrapper">
+        <div class="content">
+            <div class="home" id="home">
+                <h1>Nathan Smith</h1>
+                <h2>Software Developer</h2>
+            </div>
+            <div class="section section-about" id="about">
+                <div class="section-content">
+                    <h2>about me</h2>
+                    <p>I am an Associate Software Developer at Bentley Systems, having graduated from Mississippi State University
+                        with my Bachelors degree in Software Engineering in 2016, and my Masters degree in Computer Science
+                        in 2017.
+                    </p>
+                    <p>I have a passion for open source software, music, and video games.</p>
+                </div>
+            </div>
+            <div class="section section-projects" id="projects">
+                <div id="playlists">
+                    <span id="close" class="playlistLink">
+                        <i class="fas fa-2x fa-times"></i>
+                    </span>
+                    <ul id="playlist-list">
+                        <a target="_blank" href="https://open.spotify.com/user/officerhalf/playlist/4yRrP3k4QnagQ2frwh0I4o?si=gRp4DIYKRJmQuXbHXKRa-w">
+                            <li class="playlist">
+                                <h3>Dungeon</h3>
+                                <span>Dark, bassy, ominous tracks for dungeon delving.</span>
+                            </li>
+                        </a>
+                        <a target="_blank" href="https://open.spotify.com/user/officerhalf/playlist/5k9EOzFVz5jLaoddXy1F8R?si=JMcWOdwcS7aiIHQsaf2WkA">
+                            <li class="playlist">
+                                <h3>Sea Shanties</h3>
+                                <span>Drink up, me hearties!</span>
+                            </li>
+                        </a>
+                        <a target="_blank" href="https://open.spotify.com/user/officerhalf/playlist/15GIthbo9QN1tCXrZ7iPcK?si=PGfTiGTdTBmF1w70NWlQTQ">
+                            <li class="playlist">
+                                <h3>Tavern</h3>
+                                <span>Pull up a chair by the fire, and grab yourself a drink, traveller.</span>
+                            </li>
+                        </a>
+                        <a target="_blank" href="https://open.spotify.com/user/officerhalf/playlist/1vVl5LYtsw18pzlpgbTzkw?si=5UnRVRNWS8at6JMbFJbXEA">
+                            <li class="playlist">
+                                <h3>Battle</h3>
+                                <span>Lots of percussion and crescendos.</span>
+                            </li>
+                        </a>
+                        <a target="_blank" href="https://open.spotify.com/user/officerhalf/playlist/6PMdbht4CYPEynvuoVDSxu?si=pdnWkmZ-T6adVYyDpyKcYw">
+                            <li class="playlist">
+                                <h3>Exploration - Optimistic</h3>
+                                <span>Neutral or happy sounding tracks perfect for exploring a fantasy world.</span>
+                            </li>
+                        </a>
+                        <a target="_blank" href="https://open.spotify.com/user/officerhalf/playlist/0bcPIhdbZnBC0pgsWQW2ln?si=UE30xOXOS8OcjxxT-kRuKw">
+                            <li class="playlist">
+                                <h3>Exploration - Dark</h3>
+                                <span>Mysterious and forboding tracks, for when danger lurks around the corners.</span>
+                            </li>
+                        </a>
+                    </ul>
+                </div>
+                <h2>projects</h2>
+                <div class="projects">
+                    <div class="project">
+                        <a class="project-title-wrapper" href="https://github.com/OfficerHalf/py5Q">
+                            <div class="project-title">
+                                <h3>py5Q</h3>
+                                <img class="icon" src="img/Python-logo-notext.svg" alt="python logo">
+                            </div>
+                        </a>
+                        <div class="description">
+                            <p>A Python API for the <a href="https://daskeyboard.github.io/">Das Keyboard 5Q</a>.</p>
+                        </div>
+                        <div class="info">
+                            <a class="more" href="https://github.com/OfficerHalf/py5Q">More Info</a>
+                            <span class="status">Status: Ongoing</span>
+                        </div>
+                    </div>
+                    <div class="project">
+                        <a class="project-title-wrapper" href="https://marketplace.visualstudio.com/items?itemName=officerhalf.alloy-theme">
+                            <div class="project-title">
+                                <h3>Alloy Theme</h3>
+                                <img src="img/alloy_icon.png" alt="alloy theme icon" class="icon">
+                            </div>
+                        </a>
+                        <div class="description">
+                            <p>A more monochromatic, desaturated Monokai theme for Visual Studio Code.</p>
+                        </div>
+                        <div class="info">
+                            <a class="more" href="https://marketplace.visualstudio.com/items?itemName=officerhalf.alloy-theme">More Info</a>
+                            <span class="status">Status: Complete</span>
+                        </div>
+                    </div>
+                    <div class="project">
+                        <a class="project-title-wrapper" href="https://marketplace.visualstudio.com/items?itemName=officerhalf.homebrewery-vscode">
+                            <div class="project-title">
+                                <h3>Homebrewery Markdown Preview</h3>
+                                <img src="img/vscode.png" alt="vscode icon" class="icon">
+                            </div>
+                        </a>
+                        <div class="description">
+                            <p>An extension for Visual Studio Code that formats the markdown preview in the same manner as the <a href="http://homebrewery.naturalcrit.com/">Homebrewery</a>.</p>
+                        </div>
+                        <div class="info">
+                            <a class="more" href="https://marketplace.visualstudio.com/items?itemName=officerhalf.homebrewery-vscode">More Info</a>
+                            <span class="status">Status: Complete</span>
+                        </div>
+                    </div>
+                    <div class="project">
+                        <a class="project-title-wrapper" href="https://github.com/OfficerHalf/pyJoin">
+                            <div class="project-title">
+                                <h3>pyJoin</h3>
+                                <img class="icon" src="img/Python-logo-notext.svg" alt="python logo">
+                            </div>
+                        </a>
+                        <div class="description">
+                            <p>A Python API for <a href="https://joaoapps.com/join/">Join</a>.</p>
+                        </div>
+                        <div class="info">
+                            <a class="more" href="https://github.com/OfficerHalf/pyJoin">More Info</a>
+                            <span class="status">Status: Ongoing</span>
+                        </div>
+                    </div>
+                    <div class="project">
+                        <span class="playlistLink project-title-wrapper" style="cursor: pointer;">
+                            <div class="project-title">
+                                <h3>RPG Mood Playlists</h3>
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="spotify logo" class="icon">
+                            </div>
+                        </span>
+                        <div class="description">
+                            <p>A set of Spotify playlists to evoke specific situations or moods for use during Tabletop RPG
+                                play.
+                            </p>
+                        </div>
+                        <div class="info">
+                            <span class="playlistLink more" style="color: var(--blue); cursor: pointer;">More Info</span>
+                            <span class="status">Status: Ongoing</span>
+                        </div>
+                    </div>
+                    <div class="project">
+                        <a class="project-title-wrapper" href="https://www.nexusmods.com/dungeonbuilder/mods/5">
+                            <div class="project-title">
+                                <h3>Kenney Dungeon Tileset</h3>
+                                <img src="img/kenney.png" alt="kenney icon" class="icon">
+                            </div>
+                        </a>
+                        <div class="description">
+                            <p>The <a href="http://www.kenney.nl/assets/isometric-dungeon-tiles">Kenney Isometric Dungeon Tiles</a> set, modified and defined for <a href="https://hobbyte.net/">Dungeon Builder</a>.
+                        </div>
+                        <div class="info">
+                            <a class="more" href="https://www.nexusmods.com/dungeonbuilder/mods/5">More Info</a>
+                            <span class="status">Status: Complete</span>
+                        </div>
+                    </div>
+                    <div class="project">
+                        <a class="project-title-wrapper" href="https://www.nexusmods.com/dungeonbuilder/mods/4">
+                            <div class="project-title">
+                                <h3>Epic Isometric Token Definitions</h3>
+                                <img src="img/icon_bigdragon1.png" alt="epic isometric icon" class="icon">
+                            </div>
+                        </a>
+                        <div class="description">
+                            <p>Art definitions for use in
+                                <a href="https://hobbyte.net/">Dungeon Builder</a> for the fantastic
+                                <a href="http://www.drivethrurpg.com/product/228485/Epic-Isometric-Bundle">Epic Isometric Bundle</a> created by Alex Drummond.</p>
+                        </div>
+                        <div class="info">
+                            <a class="more" href="https://www.nexusmods.com/dungeonbuilder/mods/4">More Info</a>
+                            <span class="status">Status: Complete</span>
+                        </div>
+                    </div>
+                    <div class="project">
+                        <a class="project-title-wrapper" href="https://github.com/OfficerHalf/pyBullet">
+                            <div class="project-title">
+                                <h3>pyBullet</h3>
+                                <img class="icon" src="img/Python-logo-notext.svg" alt="python logo">
+                            </div>
+                        </a>
+                        <div class="description">
+                            <p>A task notification and automation script set for Pushbullet, written in Python.</p>
+                        </div>
+                        <div class="info">
+                            <a class="more" href="https://github.com/OfficerHalf/pyBullet">More Info</a>
+                            <span class="status">Status: Complete</span>
+                        </div>
+                    </div>
+                    <div class="project">
+                        <a class="project-title-wrapper" href="https://github.com/OfficerHalf/pyWriter">
+                            <div class="project-title">
+                                <h3>pyWriter</h3>
+                                <img class="icon" src="img/Python-logo-notext.svg" alt="python logo">
+                            </div>
+                        </a>
+                        <div class="description">
+                            <p>A work in progress open source and cross-platform clone of
+                                <a href="http://www.spacejock.com/yWriter6.html">yWriter</a>, written in Python.</p>
+                        </div>
+                        <div class="info">
+                            <a class="more" href="https://github.com/OfficerHalf/pyWriter">More Info</a>
+                            <span class="status">Status: On Hold</span>
+                        </div>
+                    </div>
+                    <div class="project">
+                        <a class="project-title-wrapper" href="https://github.com/OfficerHalf/pyd20">
+                            <div class="project-title">
+                                <h3>pyd20</h3>
+                                <img src="img/ic_launcher.svg" alt="pyd20 icon" class="icon">
+                            </div>
+                        </a>
+                        <div class="description">
+                            <p>A command-line dice roller with many options and arguments, for playing tabletop RPGs.</p>
+                        </div>
+                        <div class="info">
+                            <a class="more" href="https://github.com/OfficerHalf/pyd20">More Info</a>
+                            <span class="status">Status: Complete</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section section-contact" id="contact">
+                <div class="section-content">
+                    <h2>contact me</h2>
+                    <p>I can be reached at
+                        <a href="mailto:nathan@nathan-smith.org">nathan@nathan-smith.org</a>, or on any of these platforms.</p>
+                    <div class="contact-links">
+                        <a class="contact-link" href="https://github.com/OfficerHalf">
+                            <i class="fab fa-2x fa-github"></i>
+                            <span>GitHub</span>
+                        </a>
+                        <a class="contact-link" href="https://www.linkedin.com/in/nathan-r-smith/">
+                            <i class="fab fa-2x fa-linkedin"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a class="contact-link" href="https://www.last.fm/user/OfficerHalf">
+                            <i class="fab fa-2x fa-lastfm"></i>
+                            <span>last.fm</span>
+                        </a>
+                        <a class="contact-link" href="http://steamcommunity.com/id/officerhalf/">
+                            <i class="fab fa-2x fa-steam"></i>
+                            <span>Steam</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const patties = document.querySelectorAll(".hamburger-inner");
+        const navList = document.querySelector("#nav-list");
+
+        function toggleBurger(burger) {
+            if (window.matchMedia("only screen and (max-width: 768px)").matches) {
+                patties.forEach(patty => patty.classList.toggle("is-active"));
+                navList.classList.toggle("is-hidden");
+            }
+        }
+
+        const playlistModal = document.querySelector('#playlists');
+        const playlistModalLinks = document.querySelectorAll('.playlistLink');
+
+        function togglePlaylistModal(e) {
+            e.preventDefault();
+            if(!playlistModal.classList.contains('active')) {
+                playlistModal.style.display = '';
+                setTimeout(() => { playlistModal.classList.toggle('active'); }, 100);
+            }
+            else {
+                playlistModal.classList.toggle('active');
+                setTimeout(() => { playlistModal.style.display = 'none'; }, 500);
+            }
+        }
+
+        playlistModalLinks.forEach(modalLink => modalLink.addEventListener('click', togglePlaylistModal));
+
+        const scroll = new SmoothScroll('a[href*="#"]', {
+            header: "nav"
+        });
+
+        const burger = document.querySelector(".hamburger");
+        burger.addEventListener('click', toggleBurger);
+
+        const navLinks = document.querySelectorAll("#nav-list a");
+        navLinks.forEach(link => link.addEventListener('click', toggleBurger));
+    </script>
+</body>
+
+</html>
