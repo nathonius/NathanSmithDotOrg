@@ -20,7 +20,7 @@
             <div>
                 <h2>projects</h2>
                 <ul id="project-list">
-                    <Project :instance="project"></Project>
+                    <Project v-for="project in projects" :instance="project" :key="project.key"></Project>
                 </ul>
             </div>
         </div>
@@ -55,6 +55,7 @@
 import { Component, Vue } from 'vue-property-decorator';
 import NavBar from './components/NavBar/NavBar.vue';
 import Project from './components/Project/Project.vue';
+const projectJson: IProject[] = require('./data/projects.json');
 
 
 @Component({
@@ -64,15 +65,7 @@ import Project from './components/Project/Project.vue';
   }
 })
 export default class App extends Vue {
-    private project: IProject = {
-        id: 0,
-        title: 'pyd20',
-        icon: 'ic_launcher.svg',
-        iconAlt: 'pyd20 icon',
-        description: 'A command-line dice roller with many options and arguments, for playing tabletop RPGs.',
-        status: 'Complete',
-        url: new URL('https://github.com/OfficerHalf/pyd20')
-    };
+    private projects: IProject[] = projectJson;
 }
 
 interface IProject {
@@ -82,6 +75,6 @@ interface IProject {
     iconAlt?: string;
     description: string;
     status: string;
-    url: URL;
+    url: string;
 }
 </script>

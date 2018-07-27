@@ -6,8 +6,7 @@
                 <img :src="require('../../assets/' + instance.icon)" :alt="instance.iconAlt" class="icon">
             </div>
         </a>
-        <div class="description">
-            <p>{{instance.description}}</p>
+        <div class="description" v-html="instance.description">
         </div>
         <div class="info">
             <a class="more" :href="instance.url">More Info</a>
@@ -36,16 +35,70 @@ export default class Project extends Vue {
 <style lang="scss">
 @import '../../Global.scss';
 
-$iconSize: 50px;
+$iconSize: 100px;
+$projectWidth: 360px;
+$projectMinWidth: 250px;
+
 .project {
+    padding: 0;
+    margin: $smallGap;
+    max-width: $projectWidth;
+    min-width: $projectMinWidth;
+    display: flex;
+    flex-direction: column;
+
+    box-shadow: 3px 3px 8px .8px rgba($grey, $alpha: 0.5);
+    transition: box-shadow $linkHover;
+    &:hover {
+        box-shadow: 3px 3px 8px .8px rgba($grey, $alpha: 0.75);
+    }
+
+    & > * {
+        padding-left: $smallGap;
+        padding-right: $smallGap;
+    }
     img {
-        max-width: $iconSize;
-        max-height: $iconSize;        
+        width: $iconSize;
+        height: $iconSize;        
+    }
+    .project-title-wrapper {
+        display: block;
+        background-color: rgba($grey, $alpha: 0.12);
+        color: $black;
+        &:active, &:link, &:visited {
+            color: $black;
+        }
     }
     .project-title {
         display: flex;
         align-items: center;
-        background-color: rgba($grey, $alpha: 0.12);
+        justify-content: space-between;
+        font-size: 1.5em;
+        text-align: left;
+        padding-top: $smallGap / 2;
+        padding-bottom: $smallGap / 2;
+    }
+    .description {
+        text-align: left;
+        flex-grow: 1;
+        a {
+            color: $blue;
+            &:visited, &:link, &:active {
+                color: $blue;
+            }
+        }
+    }
+    .info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: $smallGap;
+        a {
+            color: $blue;
+            &:visited, &:link, &:active {
+                color: $blue;
+            }
+        }
     }
 }
 </style>
