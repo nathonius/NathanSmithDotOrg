@@ -80,5 +80,6 @@ interface IProject {
     description: string;
     status: string;
     url: string;
+    hidden?: boolean;
 }
 </script>

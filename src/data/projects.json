@@ -36,15 +36,6 @@
         "url": "https://github.com/OfficerHalf/pyJoin"
     },
     {
-        "id": 4,
-        "title": "RPG Mood Playlists",
-        "icon": "spotify.png",
-        "iconAlt": "spotify logo",
-        "description": "<p>A set of Spotify playlists to evoke specific situations or moods for use during Tabletop RPG play.</p>",
-        "status": "Ongoing",
-        "url": "#"
-    },
-    {
         "id": 5,
         "title": "Kenney Dungeon Tileset",
         "icon": "kenney.png",
