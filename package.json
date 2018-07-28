@@ -1,36 +1,29 @@
 {
-  "name": "nathansmithdotorg",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "nathan-smith-dot-org",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "server": "node index",
-    "start": "npm run build:live",
-    "build:live": "nodemon",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/OfficerHalf/NathanSmithDotOrg.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/OfficerHalf/NathanSmithDotOrg/issues"
-  },
-  "homepage": "https://github.com/OfficerHalf/NathanSmithDotOrg#readme",
-  "devDependencies": {
-    "@types/hapi": "^17.0.12",
-    "@types/inert": "^5.1.1",
-    "@types/node": "^10.3.0",
-    "hapi": "^17.5.1",
-    "inert": "^5.1.0",
-    "nodemon": "^1.17.5",
-    "ts-node": "^6.0.5",
-    "typescript": "^2.9.1"
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "smooth-scroll": "^12.1.5"
-  }
+    "smooth-scroll": "^14.2.1",
+    "vue": "^2.5.16",
+    "vue-class-component": "^6.0.0",
+    "vue-property-decorator": "^6.0.0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.0.0-beta.15",
+    "@vue/cli-plugin-typescript": "^3.0.0-beta.15",
+    "@vue/cli-service": "^3.0.0-beta.15",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.0.3",
+    "vue-template-compiler": "^2.5.16"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
 }

@@ -1,0 +1,19 @@
+/* Colors */
+$black: #272727;
+$yellow: #fed766;
+$blue: #2eb0c4;
+$grey: #696773;
+$darkgrey: #43424a;
+$midgrey: #4b4a54;
+$white: #f9f9fa;
+
+/* Measures */
+$navHeight: 50px;
+$smallGap: 10px;
+$medGap: 20px;
+$bigGap: 100px;
+$sectionHeight: calc(100vh - #{$navHeight});
+
+/* Timings */
+$linkHover: .25s;
+$longHover: $linkHover * 2;
