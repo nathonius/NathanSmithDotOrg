@@ -1,6 +1,7 @@
 <template>
     <nav>
-        <ul>
+        <span id="showMenuButton" v-on:click="toggleMenu"><i class="fas fa-3x fa-angle-down"></i></span>
+        <ul ref="menu">
             <li><a href="#section-home">HOME</a></li>
             <li><a href="#section-about">ABOUT</a></li>
             <li><a href="#section-projects">PROJECTS</a></li>
@@ -9,11 +10,15 @@
     </nav>
 </template>
 <script lang="ts">
-    import { Vue, Component } from 'vue-property-decorator';
+import { Vue, Component, Prop } from 'vue-property-decorator';
 
-    @Component
-    export default class NavBar extends Vue {
+@Component
+export default class NavBar extends Vue {
+    private menu: Element = this.$refs.menu as Element;
+    public toggleMenu(event: MouseEvent): void {
+        this.menu.classList.toggle('show');
     }
+}
 </script>
 <style lang="scss">
 @import '../../Global.scss';
@@ -30,6 +35,22 @@ nav {
 }
 
 nav {
+    #showMenuButton {
+        display: none;
+        @media screen and (max-width: $breakSmall) {
+            display: inline;
+        }
+        svg {
+            height: $navHeight;
+            width: 100vw;
+            color: $white;
+            cursor: pointer;
+            &:hover, &:active {
+                color: $blue;
+            }
+        }
+    }
+
     ul, li, a {
         width: 100%;
         height: 100%;
@@ -42,9 +63,14 @@ nav {
         list-style: none;
         display: flex;
         flex-grow: 1;
-        // @media screen and (max-width: 768px) {
-        //     flex-direction: column;
-        // }
+        @media screen and (max-width: $breakSmall) {
+            transition: transform $longHover;
+            transform: translateY($navHeight * -5);
+            flex-direction: column;
+            &.show {
+                transform: translateY(-$navHeight);
+            }
+        }
     }
 
     li {
