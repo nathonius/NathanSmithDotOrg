@@ -1,11 +1,11 @@
 <template>
     <nav>
-        <span id="showMenuButton" v-on:click="toggleMenu"><i class="fas fa-3x fa-angle-down"></i></span>
         <ul ref="menu">
-            <li><a href="#section-home">HOME</a></li>
-            <li><a href="#section-about">ABOUT</a></li>
-            <li><a href="#section-projects">PROJECTS</a></li>
-            <li><a href="#section-contact">CONTACT</a></li>
+            <li><a href="#section-home" v-on:click="closeMenu">HOME</a></li>
+            <li><a href="#section-about" v-on:click="closeMenu">ABOUT</a></li>
+            <li><a href="#section-projects" v-on:click="closeMenu">PROJECTS</a></li>
+            <li><a href="#section-contact" v-on:click="closeMenu">CONTACT</a></li>
+            <li id="showMenuButton" v-on:click="toggleMenu"><i class="fas fa-3x fa-angle-down"></i></li>
         </ul>
     </nav>
 </template>
@@ -14,9 +14,19 @@ import { Vue, Component, Prop } from 'vue-property-decorator';
 
 @Component
 export default class NavBar extends Vue {
-    private menu: Element = this.$refs.menu as Element;
+    private menu: Element | null = null;
+    mounted() {
+        this.menu = this.$refs.menu as Element;
+    }
     public toggleMenu(event: MouseEvent): void {
-        this.menu.classList.toggle('show');
+        if(this.menu) {
+            this.menu.classList.toggle('show');
+        }
+    }
+    public closeMenu(event: MouseEvent): void {
+        if(this.menu) {
+            this.menu.classList.remove('show');
+        }
     }
 }
 </script>
@@ -37,15 +47,22 @@ nav {
 nav {
     #showMenuButton {
         display: none;
+        background-color: $darkgrey;
         @media screen and (max-width: $breakSmall) {
-            display: inline;
+            display: block;
+            width: 100vw;
         }
         svg {
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
             height: $navHeight;
-            width: 100vw;
             color: $white;
             cursor: pointer;
-            &:hover, &:active {
+            transition: transform $linkHover;
+        }
+        &:hover, &:active {
+            svg {
                 color: $blue;
             }
         }
@@ -65,10 +82,13 @@ nav {
         flex-grow: 1;
         @media screen and (max-width: $breakSmall) {
             transition: transform $longHover;
-            transform: translateY($navHeight * -5);
+            transform: translateY($navHeight * -4);
             flex-direction: column;
             &.show {
-                transform: translateY(-$navHeight);
+                transform: translateY(0);
+                svg {
+                    transform: rotate(180deg);
+                }
             }
         }
     }
