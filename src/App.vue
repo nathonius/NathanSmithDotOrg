@@ -29,19 +29,19 @@
                 <h2>contact me</h2>
                 <p>I can be reached at <a href="mailto:nathan@nathan-smith.org">nathan@nathan-smith.org</a>, or on any of these platforms.</p>
                 <span>
-                    <a data-scroll class="contact-link" href="https://github.com/OfficerHalf">
+                    <a class="contact-link" href="https://github.com/OfficerHalf">
                         <i class="fab fa-2x fa-github"></i>
                         <span>GitHub</span>
                     </a>
-                    <a data-scroll class="contact-link" href="https://www.linkedin.com/in/nathan-r-smith/">
+                    <a class="contact-link" href="https://www.linkedin.com/in/nathan-r-smith/">
                         <i class="fab fa-2x fa-linkedin"></i>
                         <span>LinkedIn</span>
                     </a>
-                    <a data-scroll class="contact-link" href="https://www.last.fm/user/OfficerHalf">
+                    <a class="contact-link" href="https://www.last.fm/user/OfficerHalf">
                         <i class="fab fa-2x fa-lastfm"></i>
                         <span>last.fm</span>
                     </a>
-                    <a data-scroll class="contact-link" href="http://steamcommunity.com/id/officerhalf/">
+                    <a class="contact-link" href="http://steamcommunity.com/id/officerhalf/">
                         <i class="fab fa-2x fa-steam"></i>
                         <span>Steam</span>
                     </a>

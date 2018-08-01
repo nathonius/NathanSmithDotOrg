@@ -17,3 +17,6 @@ $sectionHeight: calc(100vh - #{$navHeight});
 /* Timings */
 $linkHover: .25s;
 $longHover: $linkHover * 2;
+
+/* Responsive */
+$breakSmall: 582px;

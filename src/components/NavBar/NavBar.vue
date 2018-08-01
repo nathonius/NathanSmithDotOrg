@@ -1,19 +1,34 @@
 <template>
     <nav>
-        <ul>
-            <li><a href="#section-home">HOME</a></li>
-            <li><a href="#section-about">ABOUT</a></li>
-            <li><a href="#section-projects">PROJECTS</a></li>
-            <li><a href="#section-contact">CONTACT</a></li>
+        <ul ref="menu">
+            <li><a href="#section-home" v-on:click="closeMenu">HOME</a></li>
+            <li><a href="#section-about" v-on:click="closeMenu">ABOUT</a></li>
+            <li><a href="#section-projects" v-on:click="closeMenu">PROJECTS</a></li>
+            <li><a href="#section-contact" v-on:click="closeMenu">CONTACT</a></li>
+            <li id="showMenuButton" v-on:click="toggleMenu"><i class="fas fa-3x fa-angle-down"></i></li>
         </ul>
     </nav>
 </template>
 <script lang="ts">
-    import { Vue, Component } from 'vue-property-decorator';
+import { Vue, Component, Prop } from 'vue-property-decorator';
 
-    @Component
-    export default class NavBar extends Vue {
+@Component
+export default class NavBar extends Vue {
+    private menu: Element | null = null;
+    mounted() {
+        this.menu = this.$refs.menu as Element;
     }
+    public toggleMenu(event: MouseEvent): void {
+        if(this.menu) {
+            this.menu.classList.toggle('show');
+        }
+    }
+    public closeMenu(event: MouseEvent): void {
+        if(this.menu) {
+            this.menu.classList.remove('show');
+        }
+    }
+}
 </script>
 <style lang="scss">
 @import '../../Global.scss';
@@ -30,6 +45,29 @@ nav {
 }
 
 nav {
+    #showMenuButton {
+        display: none;
+        background-color: $darkgrey;
+        @media screen and (max-width: $breakSmall) {
+            display: block;
+            width: 100vw;
+        }
+        svg {
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            height: $navHeight;
+            color: $white;
+            cursor: pointer;
+            transition: transform $linkHover;
+        }
+        &:hover, &:active {
+            svg {
+                color: $blue;
+            }
+        }
+    }
+
     ul, li, a {
         width: 100%;
         height: 100%;
@@ -42,9 +80,17 @@ nav {
         list-style: none;
         display: flex;
         flex-grow: 1;
-        // @media screen and (max-width: 768px) {
-        //     flex-direction: column;
-        // }
+        @media screen and (max-width: $breakSmall) {
+            transition: transform $longHover;
+            transform: translateY($navHeight * -4);
+            flex-direction: column;
+            &.show {
+                transform: translateY(0);
+                svg {
+                    transform: rotate(180deg);
+                }
+            }
+        }
     }
 
     li {
