@@ -53,10 +53,10 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import NavBar from './components/NavBar/NavBar.vue';
-import Project from './components/Project/Project.vue';
+import NavBar from '../components/NavBar/NavBar.vue';
+import Project from '../components/Project/Project.vue';
 const SmoothScroll = require('smooth-scroll');
-const projectJson: IProject[] = require('./data/projects.json');
+const projectJson: IProject[] = require('../data/projects.json');
 
 const scroll = new SmoothScroll('a[href*="#"]', {
     header: 'nav'

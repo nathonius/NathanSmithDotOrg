@@ -1,4 +1,4 @@
-@import "./Global.scss";
+@import "../Global.scss";
 
 html {
     box-sizing: border-box;
@@ -70,7 +70,7 @@ a:hover, a:active {
 
 #section-about {
     background: $black;
-    background-image: url(./assets/mike-dennler-173199.jpg);
+    background-image: url(../assets/mike-dennler-173199.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -92,7 +92,7 @@ a:hover, a:active {
 
 #section-contact {
     background: $grey;
-    background-image: url(./assets/Cowbell.jpg);
+    background-image: url(../assets/Cowbell.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
