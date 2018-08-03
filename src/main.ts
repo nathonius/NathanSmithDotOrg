@@ -11,7 +11,8 @@ const routes = [
 ];
 
 const router = new VueRouter({
-    routes
+    routes,
+    mode: 'history'
 });
 
 const vm = new Vue({
