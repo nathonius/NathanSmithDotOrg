@@ -19,7 +19,7 @@ export default class FourOFour extends Vue {
 }
 </script>
 <style lang="scss">
-@import '../Global.scss';
+@import '../../Global.scss';
 
 #wrapper404 {
     height: 100vh;
