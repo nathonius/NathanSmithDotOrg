@@ -31,7 +31,12 @@ export default class FourOFour extends Vue {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    h2 {
+        font-family: "Quicksand", sans-serif;
+        margin: 0;
+    }
     h1 {
+        margin: 0;
         font-family: "Quicksand", sans-serif;
         font-size: 10em;
     }
