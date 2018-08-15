@@ -7,8 +7,9 @@ module.exports = {
     configureWebpack: {
         resolve: {
             alias: {
-                "vue$": "vue/dist/vue.min.js"
+                "vue$": "vue/dist/vue.js"
             }
-        }
+        },
+        devtool: 'eval-source-map'
     }
 }

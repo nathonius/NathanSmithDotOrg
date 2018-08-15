@@ -16,6 +16,9 @@
     "object-literal-sort-keys": false,
     "no-consecutive-blank-lines": false,
     "trailing-comma": false,
-    "eofline": false
+    "eofline": false,
+    "no-console": [true, "log"],
+    "arrow-parens": [true, "ban-single-arg-parens"],
+    "no-var-requires": false
   }
 }

@@ -1,0 +1,124 @@
+@import "../../Global.scss";
+
+html {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    overflow-x: hidden;
+  }
+
+  body {
+    padding: 0px;
+    margin: 0px;
+    background: $white;
+  }
+
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+}
+
+#page-wrapper {
+    color: $black;
+    font-size: 15px;
+    font-family: "Roboto", "Open Sans", sans-serif;
+    margin-top: $navHeight;
+}
+
+img {
+    width: 100%;
+}
+
+h1, h2, h3 {
+    margin: 0;
+}
+
+h2, h3 {
+    font-family: "Quicksand", sans-serif;
+}
+
+/* Link Colors */
+a { text-decoration: none; transition: color $linkHover; }
+a:link, a:visited {
+    color: var($blue);
+}
+a:hover, a:active {
+    color: var($blue);
+}
+
+.section {
+    min-height: $sectionHeight;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-left: $medGap * 2;
+    padding-right: $medGap * 2;
+    @media screen and (max-width: 768px) {
+        padding-left: $smallGap;
+        padding-right: $smallGap;
+    }
+    text-align: center;
+    h1 { font-size: 6em; font-family: "Pacifico", serif; }
+    h2 { font-size: 2.5em; }
+    & > div {
+        padding: $smallGap;
+    }
+}
+
+#section-about {
+    background: $black;
+    background-image: url(../../assets/mike-dennler-173199.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    & > div {
+        background: rgba($color: $white, $alpha: 0.6)
+    }
+}
+
+#section-projects {
+    #project-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+#section-contact {
+    background: $grey;
+    background-image: url(../../assets/Cowbell.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    & > div {
+        p {
+            a {
+                color: $blue;
+                &:link, &:visited { color: $blue; }
+                &:hover, &:active { color: $white; }
+            }
+        }
+        a {
+            color: $white;
+            &:link, &:visited { color: $white; }
+            &:hover, &:active { color: $blue; }
+        }
+        color: $white;
+        background-color: rgba($darkgrey, $alpha: 0.5);
+    }
+    .contact-link {
+        padding-left: $smallGap;
+        padding-right: $smallGap;
+        display: inline-flex;
+        align-items: center;
+        span {
+            padding-left: $smallGap / 2;
+        }
+    }
+}
