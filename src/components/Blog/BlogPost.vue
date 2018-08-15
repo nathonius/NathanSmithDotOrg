@@ -8,18 +8,21 @@
         </div>
         <div v-html="post.data.body" class="body"></div>
     </div>
+    <ButterAttr></ButterAttr>
 </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue, Prop, Watch } from 'vue-property-decorator';
 import NavBar from '../Common/NavBar.vue';
+import ButterAttr from './ButterCMSAttribution.vue';
 import * as Butter from 'buttercms';
 const butterAPIKey = require('./data/buttercms.json').key;
 
 @Component({
     components: {
-        NavBar
+        NavBar,
+        ButterAttr
     }
 })
 export default class BlogPost extends Vue {

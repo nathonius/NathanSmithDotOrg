@@ -13,17 +13,17 @@
                 </div>
             </div>
         </div>
+        <ButterAttr></ButterAttr>
     </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
 import NavBar from '../Common/NavBar.vue';
+import ButterAttr from './ButterCMSAttribution.vue';
 const butterAPIKey = require('./data/buttercms.json').key;
 import * as Butter from 'buttercms';
 const SmoothScroll = require('smooth-scroll');
-
-console.log(butterAPIKey);
 
 const scrollBlog = new SmoothScroll('a[href*="#"]', {
     header: 'nav'
@@ -31,7 +31,8 @@ const scrollBlog = new SmoothScroll('a[href*="#"]', {
 
 @Component({
     components: {
-        NavBar
+        NavBar,
+        ButterAttr
     }
 })
 export default class Blog extends Vue {
