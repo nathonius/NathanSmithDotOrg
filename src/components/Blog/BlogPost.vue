@@ -13,6 +13,8 @@
 </template>
 
 <script lang="ts">
+import * as Prism from 'prismjs';
+import 'prismjs/components/prism-batch';
 import { Component, Vue, Prop, Watch } from 'vue-property-decorator';
 import NavBar from '../Common/NavBar.vue';
 import ButterAttr from './ButterCMSAttribution.vue';
@@ -47,6 +49,7 @@ export default class BlogPost extends Vue {
         }
     };
     private butter: Butter;
+
     constructor() {
         super();
         this.butter = Butter(butterAPIKey);
@@ -58,6 +61,9 @@ export default class BlogPost extends Vue {
         }).catch(response => {
             console.error(response);
         });
+    }
+    public updated() {
+        Prism.highlightAll();
     }
     public created() {
         this.getPost();
@@ -72,6 +78,7 @@ export default class BlogPost extends Vue {
 <style lang="scss">
 @import '../../Global.scss';
 @import 'BlogCommon.scss';
+@import './prismjs-alloy.scss';
 
 .blogPost {
     margin-top: $navHeight;
