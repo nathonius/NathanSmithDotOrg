@@ -24,18 +24,17 @@ html {
     font-size: 15px;
     font-family: "Roboto", "Open Sans", sans-serif;
     margin-top: $navHeight;
+    h1, h2, h3 {
+        margin: 0;
+    }
+    
+    h2, h3 {
+        font-family: "Quicksand", sans-serif;
+    }
 }
 
 img {
     width: 100%;
-}
-
-h1, h2, h3 {
-    margin: 0;
-}
-
-h2, h3 {
-    font-family: "Quicksand", sans-serif;
 }
 
 /* Link Colors */

@@ -82,24 +82,14 @@ export default class BlogPost extends Vue {
 
 .blogPost {
     margin-top: $navHeight;
-    margin-left: 20vw;
-    margin-right: 20vw;
-    font-family: 'Roboto', sans-serif;
-    @media screen and (max-width: $breakMedium) {
-            margin-left: 10vw;
-            margin-right: 10vw;
-        }
-    @media screen and (max-width: $breakSmall) {
-            margin-left: 10px;
-            margin-right: 10px;
-        }
-    h1, h2, h3 {
-        font-family: 'Merriweather', serif;
-        font-weight: 700;
-    }
-    p, h4, a {
-        font-family: 'Roboto', sans-serif;
-    }
+    padding: $smallGap;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 400px;
+    font-size: 21px;
+    font-family: 'blog-serif', serif;
+    text-rendering: optimizeLegibility;
     img {
         width: auto;
         height: auto;
@@ -107,6 +97,18 @@ export default class BlogPost extends Vue {
         min-height: 0;
         max-height: 100%;
         max-width: 100%;
+    }
+    h1, h2, h3, h4 {
+        font-family: 'blog-sans', sans-serif;
+    }
+    code {
+        font-family: 'blog-code', monospace;
+        font-size: 18px;
+    }
+    p code, li code {
+        margin-left: 3px;
+        margin-right: 3px;
+        background-color: rgba($grey, $alpha: 0.1)
     }
     .titleCard {
         padding-top: $smallGap * 2;
@@ -116,14 +118,32 @@ export default class BlogPost extends Vue {
         }
         .title {
             display: inline;
-            font-size: 3.4em;
+            font-size: 42px;
+            font-style: normal;
+            font-weight: 600;
         }
         .byline {
             display: inline;
             margin-left: $smallGap;
+            color: $grey;
         }
     }
     .body {
+        p:first-child:first-letter {
+            float: left;
+            font-family: 'blog-sans', sans-serif;
+            font-size: 72px;
+            line-height: 64px;
+            margin-bottom: -5px;
+            margin-left: -5px;
+        }
+        figcaption {
+            font-size: 12px;
+            font-style: italic;
+            color: $grey;
+            margin-top: -2px;
+            margin-bottom: -5px;
+        }
         a {
             color: $blue;
         }

@@ -67,25 +67,19 @@ $featuredImageH: 428px;
 .blog {
     background-color: $white;
     color: $black;
+    padding: $smallGap;
     margin-top: $navHeight;
     padding-top: $smallGap * 3;
-    margin-left: 20vw;
-    margin-right: 20vw;
-    font-family: 'Roboto', sans-serif;
-    @media screen and (max-width: $breakMedium) {
-            margin-left: 10vw;
-            margin-right: 10vw;
-        }
-    @media screen and (max-width: $breakSmall) {
-            margin-left: 10px;
-            margin-right: 10px;
-        }
+    margin-left: auto;
+    margin-right: auto;
+    max-width: $blogWidth;
+    font-family: 'blog-serif', serif;
     h1, h2, h3 {
-        font-family: 'Merriweather', serif;
+        font-family: 'blog-sans', sans-serif;
         font-weight: 700;
     }
     p, h4, a {
-        font-family: 'Roboto', sans-serif;
+        font-family: 'blog-serif', serif;
     }
     a {
         color: $black;
