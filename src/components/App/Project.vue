@@ -2,14 +2,14 @@
     <li class="project">
         <a class="project-title-wrapper" :href="instance.url">
             <div class="project-title">
-                <h3>{{instance.title}}</h3>
-                <img :src="require('../../assets/' + instance.icon)" :alt="instance.iconAlt" class="icon">
+                <h3>{{instance.name}}</h3>
+                <img :src="instance.icon" class="icon">
             </div>
         </a>
         <div class="description" v-html="instance.description">
         </div>
         <div class="info">
-            <a class="more" :href="instance.url">More Info</a>
+            <a class="more" :href="instance.more">More Info</a>
             <span class="status">Status: {{ instance.status }}</span>
         </div>
     </li>
@@ -18,13 +18,11 @@
 import { Vue, Component, Prop } from 'vue-property-decorator';
 
 interface IProject {
-    id: number;
-    title: string;
-    icon?: string;
-    iconAlt?: string;
+    name: string;
+    icon: string;
     description: string;
     status: string;
-    url: URL;
+    more: string;
 }
 
 @Component
@@ -58,8 +56,10 @@ $projectMinWidth: 250px;
         padding-right: $smallGap;
     }
     img {
-        width: $iconSize;
-        height: $iconSize;        
+        margin-left: $smallGap;
+        max-width: $iconSize;
+        max-height: $iconSize;
+        min-width: $iconSize;    
     }
     .project-title-wrapper {
         display: block;

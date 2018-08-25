@@ -20,7 +20,7 @@
             <div>
                 <h2>projects</h2>
                 <ul id="project-list">
-                    <Project v-for="project in projects" :instance="project" :key="project.key"></Project>
+                    <Project v-for="project in projects" :instance="project" :key="project.name"></Project>
                 </ul>
             </div>
         </div>
@@ -52,12 +52,13 @@
 </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Watch } from 'vue-property-decorator';
 import NavBar from '../Common/NavBar.vue';
 import Project from './Project.vue';
 import { setTimeout } from 'timers';
 const SmoothScroll = require('smooth-scroll');
-const projectJson: IProject[] = require('./data/projects.json');
+import * as Butter from 'buttercms';
+const butterAPIKey = require('../Blog/data/buttercms.json').key;
 
 const scroll = new SmoothScroll('a[href*="#"]', {
     header: 'nav'
@@ -70,17 +71,33 @@ const scroll = new SmoothScroll('a[href*="#"]', {
   }
 })
 export default class App extends Vue {
-    private projects: IProject[] = projectJson;
+    private projects: IProject[] = [];
+    private butter: Butter;
+    constructor() {
+        super();
+        this.butter = Butter(butterAPIKey);
+    }
+    public created() {
+        this.getProjects();
+    }
+    @Watch('$route')
+    public onRouteChange(to: string, from: string) {
+        this.getProjects();
+    }
+    private getProjects() {
+        this.butter.content.retrieve(['project']).then(data => {
+            this.projects = data.data.data.project;
+        }).catch(data => {
+            console.error(data);
+        });
+    }
 }
 
 interface IProject {
-    id: number;
-    title: string;
-    icon?: string;
-    iconAlt?: string;
+    name: string;
+    icon: string;
     description: string;
     status: string;
-    url: string;
-    hidden?: boolean;
+    more: string;
 }
 </script>
