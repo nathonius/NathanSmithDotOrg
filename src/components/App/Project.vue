@@ -16,14 +16,7 @@
 </template>
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator';
-
-interface IProject {
-    name: string;
-    icon: string;
-    description: string;
-    status: string;
-    more: string;
-}
+import { IProject } from '../../models/IProject';
 
 @Component
 export default class Project extends Vue {

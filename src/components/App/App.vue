@@ -52,13 +52,14 @@
 </div>
 </template>
 <script lang="ts">
-import { Component, Vue, Watch } from 'vue-property-decorator';
+import { Component, Watch, Vue, Inject } from 'vue-property-decorator';
+import { mixins } from 'vue-class-component';
 import NavBar from '../Common/NavBar.vue';
 import Project from './Project.vue';
 import { setTimeout } from 'timers';
 const SmoothScroll = require('smooth-scroll');
-import * as Butter from 'buttercms';
-const butterAPIKey = require('../Blog/data/buttercms.json').key;
+import ButterService from '../../services/butter.service';
+import { IProject } from '../../models/IProject';
 
 const scroll = new SmoothScroll('a[href*="#"]', {
     header: 'nav'
@@ -72,32 +73,17 @@ const scroll = new SmoothScroll('a[href*="#"]', {
 })
 export default class App extends Vue {
     private projects: IProject[] = [];
-    private butter: Butter;
-    constructor() {
-        super();
-        this.butter = Butter(butterAPIKey);
-    }
+    @Inject('butter') private butterService!: ButterService;
     public created() {
-        this.getProjects();
+        this.butterService.getProjects().then(projects => {
+            this.projects = projects;
+        });
     }
     @Watch('$route')
     public onRouteChange(to: string, from: string) {
-        this.getProjects();
-    }
-    private getProjects() {
-        this.butter.content.retrieve(['project']).then(data => {
-            this.projects = data.data.data.project;
-        }).catch(data => {
-            console.error(data);
+        this.butterService.getProjects().then(projects => {
+            this.projects = projects;
         });
     }
-}
-
-interface IProject {
-    name: string;
-    icon: string;
-    description: string;
-    status: string;
-    more: string;
 }
 </script>

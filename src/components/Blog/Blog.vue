@@ -2,7 +2,7 @@
     <div>
         <NavBar></NavBar>
         <div class="blog" id="top">
-            <div class="postCard" v-for="(post, index) in posts" :key="post.slug + '_' + index">
+            <div class="postCard" v-for="(post, index) in posts.data" :key="post.slug + '_' + index">
                 <router-link :to="'/blog/' + post.slug">
                     <img class="featuredImage" v-if="post.featured_image" :src="post.featured_image" alt="">
                 </router-link>
@@ -18,12 +18,12 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator';
+import { Component, Prop, Vue, Inject } from 'vue-property-decorator';
 import NavBar from '../Common/NavBar.vue';
 import ButterAttr from './ButterCMSAttribution.vue';
-const butterAPIKey = require('./data/buttercms.json').key;
-import * as Butter from 'buttercms';
 const SmoothScroll = require('smooth-scroll');
+import { IPostList } from '../../models/IPost';
+import ButterService from '../../services/butter.service';
 
 const scrollBlog = new SmoothScroll('a[href*="#"]', {
     header: 'nav'
@@ -36,23 +36,21 @@ const scrollBlog = new SmoothScroll('a[href*="#"]', {
     }
 })
 export default class Blog extends Vue {
-    public posts = [
-        ];
-    private butter: Butter;
-    constructor() {
-        super();
-        this.butter = Butter(butterAPIKey);
-    }
-    public getPosts() {
-        this.butter.post.list({
-            page: 1,
-            page_size: 10
-        }).then(response => {
-            this.posts = response.data.data;
-        });
-    }
+    public posts: IPostList = {
+        data: [
+            {
+                slug: '',
+                featured_image: '',
+                title: '',
+                summary: ''
+            }
+        ]
+    };
+    @Inject('butter') private butterService!: ButterService;
     public created() {
-        this.getPosts();
+        this.butterService.getPosts().then(posts => {
+            this.posts = posts;
+        });
     }
 }
 </script>

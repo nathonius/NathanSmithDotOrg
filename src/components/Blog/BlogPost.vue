@@ -3,10 +3,10 @@
     <NavBar></NavBar>
     <div class="blogPost">
         <div class="titleCard">
-            <h1 class="title">{{ post.data.title }}</h1>
-            <h4 class="byline">by {{ post.data.author.first_name }} {{ post.data.author.last_name }}</h4>
+            <h1 class="title">{{ post.title }}</h1>
+            <h4 class="byline">by {{ post.author.first_name }} {{ post.author.last_name }}</h4>
         </div>
-        <div v-html="post.data.body" class="body"></div>
+        <div v-html="post.body" class="body"></div>
     </div>
     <ButterAttr></ButterAttr>
 </div>
@@ -15,11 +15,11 @@
 <script lang="ts">
 import * as Prism from 'prismjs';
 import 'prismjs/components/prism-batch';
-import { Component, Vue, Prop, Watch } from 'vue-property-decorator';
+import { Component, Prop, Watch, Vue, Inject } from 'vue-property-decorator';
 import NavBar from '../Common/NavBar.vue';
 import ButterAttr from './ButterCMSAttribution.vue';
-import * as Butter from 'buttercms';
-const butterAPIKey = require('./data/buttercms.json').key;
+import ButterService from '../../services/butter.service';
+import { IPost } from '../../models/IPost';
 
 @Component({
     components: {
@@ -28,49 +28,28 @@ const butterAPIKey = require('./data/buttercms.json').key;
     }
 })
 export default class BlogPost extends Vue {
-    public post = {
-        data: {
-            title: '',
-            author: {
-                first_name: '',
-                last_name: ''
-            },
-            body: '',
-        },
-        meta: {
-            previous_post: {
-                title: '',
-                slug: ''
-            },
-            next_post: {
-                title: '',
-                slug: ''
-            }
+    public post: IPost = {
+        title: '',
+        body: '',
+        author: {
+            first_name: '',
+            last_name: ''
         }
     };
-    private butter: Butter;
-
-    constructor() {
-        super();
-        this.butter = Butter(butterAPIKey);
-    }
-    public getPost() {
-        this.butter.post.retrieve(this.$route.params.slug)
-        .then(response => {
-            this.post = response.data;
-        }).catch(response => {
-            console.error(response);
-        });
-    }
+    @Inject('butter') private butterService!: ButterService;
     public updated() {
         Prism.highlightAll();
     }
     public created() {
-        this.getPost();
+        this.butterService.getPost(this.$route.params.slug).then(post => {
+            this.post = post;
+        });
     }
     @Watch('$route')
     public onRouteChange(to: string, from: string) {
-        this.getPost();
+        this.butterService.getPost(this.$route.params.slug).then(post => {
+            this.post = post;
+        });
     }
 }
 </script>
@@ -129,14 +108,6 @@ export default class BlogPost extends Vue {
         }
     }
     .body {
-        p:first-child:first-letter {
-            float: left;
-            font-family: 'blog-sans', sans-serif;
-            font-size: 72px;
-            line-height: 64px;
-            margin-bottom: -5px;
-            margin-left: -5px;
-        }
         figcaption {
             font-size: 12px;
             font-style: italic;

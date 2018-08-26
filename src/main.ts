@@ -4,9 +4,12 @@ import App from './components/App/App.vue';
 import FourOFour from './components/Common/FourOFour.vue';
 import Blog from './components/Blog/Blog.vue';
 import BlogPost from './components/Blog/BlogPost.vue';
+import ButterService from './services/butter.service';
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
+
+const butterService = new ButterService();
 
 const routes: RouteConfig[] = [
     {
@@ -49,5 +52,10 @@ const router = new VueRouter({
 });
 
 const vm = new Vue({
-    router
+    router,
+    provide() {
+        return {
+            butter: butterService
+        };
+    }
 }).$mount('#app');
