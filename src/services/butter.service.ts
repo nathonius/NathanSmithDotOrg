@@ -3,7 +3,7 @@ import { IPost, IPostList } from '../models/IPost';
 import { IProject } from '../models/IProject';
 
 export default class ButterService {
-    private butterAPIKey = require('../components/Blog/data/buttercms.json').key;
+    private butterAPIKey = require('./buttercms.json').key;
     private butter = Butter(this.butterAPIKey);
 
     public getPosts(): Promise<IPostList> {
