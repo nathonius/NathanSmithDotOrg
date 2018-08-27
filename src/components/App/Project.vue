@@ -1,6 +1,6 @@
 <template>
     <li class="project">
-        <a class="project-title-wrapper" :href="instance.url">
+        <a class="project-title-wrapper" :href="instance.more">
             <div class="project-title">
                 <h3>{{instance.name}}</h3>
                 <img :src="instance.icon" class="icon">
