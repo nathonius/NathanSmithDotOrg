@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import VueRouter, { RouteConfig } from 'vue-router';
+import VueRouter, { RouteConfig, Route } from 'vue-router';
 import App from './components/App/App.vue';
 import FourOFour from './components/Common/FourOFour.vue';
 import Blog from './components/Blog/Blog.vue';
@@ -34,7 +34,7 @@ const routes: RouteConfig[] = [
     }
 ];
 
-function scrollBehavior(to, from, savedPosition) {
+function scrollBehavior(to: Route, from: Route, savedPosition: any) {
     if (to.name === 'blog' && from.name === 'blogPost') {
         return savedPosition;
     } else if (to.name === 'home' && to.hash) {

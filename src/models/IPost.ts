@@ -30,4 +30,5 @@ export interface IPost {
     seo_title?: string;
     meta_description?: string;
     status?: string;
+    isWide?: boolean;
 }

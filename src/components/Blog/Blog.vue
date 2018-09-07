@@ -2,16 +2,7 @@
     <div>
         <NavBar></NavBar>
         <div class="blog" id="top">
-            <div class="postCard" v-for="(post, index) in posts.data" :key="post.slug + '_' + index">
-                <router-link :to="'/blog/' + post.slug">
-                    <img class="featuredImage" v-if="post.featured_image" :src="post.featured_image" alt="">
-                </router-link>
-                <div class="inset">
-                    <router-link :to="'/blog/' + post.slug" class="title"><h2>{{ post.title }}</h2></router-link>
-                    <p>{{ post.summary }}</p>
-                    <router-link class="button" :to="'/blog/' + post.slug">Read this post.</router-link>                    
-                </div>
-            </div>
+            <BlogPostCard v-for="(post, index) in posts.data" :key="index + 'bug'" :post="post"></BlogPostCard>
         </div>
         <ButterAttr></ButterAttr>
     </div>
@@ -20,6 +11,7 @@
 <script lang="ts">
 import { Component, Prop, Vue, Inject } from 'vue-property-decorator';
 import NavBar from '../Common/NavBar.vue';
+import BlogPostCard from './BlogPostCard.vue';
 import ButterAttr from './ButterCMSAttribution.vue';
 const SmoothScroll = require('smooth-scroll');
 import { IPostList } from '../../models/IPost';
@@ -32,7 +24,8 @@ const scrollBlog = new SmoothScroll('a[href*="#"]', {
 @Component({
     components: {
         NavBar,
-        ButterAttr
+        ButterAttr,
+        BlogPostCard
     }
 })
 export default class Blog extends Vue {
@@ -42,15 +35,48 @@ export default class Blog extends Vue {
                 slug: '',
                 featured_image: '',
                 title: '',
-                summary: ''
+                summary: '',
+                isWide: false
             }
         ]
     };
     @Inject('butter') private butterService!: ButterService;
     public created() {
         this.butterService.getPosts().then(posts => {
-            this.posts = posts;
+            this.posts = this.fillGrid(posts);
         });
+    }
+    private fillGrid(postList: IPostList): IPostList {
+        const posts = postList.data;
+        if (posts.length === 1) {
+            posts[0].isWide = true;
+            return {
+                data: posts
+            };
+        }
+        if (posts.length % 3 === 2) {
+            const index = Math.floor(Math.random() * posts.length);
+            posts[index].isWide = true;
+            return {
+                data: posts
+            };
+        }
+        if (posts.length % 3 === 1 && posts.length >= 3) {
+            // select the first post from two separate rows of 3, and make it wide
+            const indexes: number[] = Array.apply(null, {length: posts.length}).map(Function.call, Number);
+            let indexIndex = Math.floor(Math.floor(Math.random() * indexes.length) / 3) * 3;
+            const index1 = indexes[indexIndex];
+            indexes.splice(indexIndex, 3);
+            indexIndex = Math.floor(Math.floor(Math.random() * indexes.length) / 3) * 3;
+            const index2 = indexes[indexIndex];
+            posts[index1].isWide = true;
+            posts[index2].isWide = true;
+            return {
+                data: posts
+            };
+        }
+        // else
+        return postList;
     }
 }
 </script>
@@ -65,45 +91,13 @@ $featuredImageH: 428px;
 .blog {
     background-color: $white;
     color: $black;
-    padding: $smallGap;
     margin-top: $navHeight;
     padding-top: $smallGap * 3;
     margin-left: auto;
     margin-right: auto;
-    max-width: $blogWidth;
-    font-family: 'blog-serif', serif;
-    h1, h2, h3 {
-        font-family: 'blog-sans', sans-serif;
-        font-weight: 700;
-    }
-    p, h4, a {
-        font-family: 'blog-serif', serif;
-    }
-    a {
-        color: $black;
-    }
-    .postCard {
-        margin-bottom: $bigGap;
-        .featuredImage {
-            width: $featuredImageW;
-            max-width: 100%;
-        }
-        .inset {
-            padding: $smallGap * 2;
-            .title {
-                &:hover {
-                    text-decoration: underline;
-                }
-                h2 {
-                    display: inline;
-                }
-            }
-            .button {
-                padding: 5px;
-                background-color: $blue;
-            }
-        }
-    }
+    max-width: $blogWidth + 100px;
+    display: flex;
+    flex-wrap: wrap;
 }
 </style>
 
