@@ -5,6 +5,7 @@
     </router-link>
     <div class="cardContent">
         <router-link :to="'/blog/' + post.slug" class="cardTitle"><h2>{{ post.title }}</h2></router-link>
+        <p class="byline">by {{ post.author.first_name + ' ' + post.author.last_name }}, {{ PublishDate }}</p>
         <p class="cardSummary">{{ post.summary }}</p>
     </div>
 </div>
@@ -17,6 +18,13 @@ import { Component, Vue, Prop } from 'vue-property-decorator';
 @Component
 export default class BlogPostCard extends Vue {
     @Prop() public post!: IPost;
+    get PublishDate(): string {
+        if(this.post.published) {
+            const theDate: Date = new Date(this.post.published);
+            return theDate.toLocaleDateString("en-US");
+        }
+        return '';
+    }
 }
 </script>
 
@@ -72,6 +80,9 @@ $halfGap: $cardGap / 2;
         .cardTitle, .cardTitle * {
             padding: 0;
             margin: 0;
+        }
+        .byline {
+            margin-top: 2px;
         }
         .cardSummary {
             padding: 0;
