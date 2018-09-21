@@ -59,7 +59,7 @@ import Project from './Project.vue';
 import { setTimeout } from 'timers';
 const SmoothScroll = require('smooth-scroll');
 import ButterService from '../../services/butter.service';
-import { IProject } from '../../models/IProject';
+import { IProject } from './models/IProject';
 
 const scroll = new SmoothScroll('a[href*="#"]', {
     header: 'nav'

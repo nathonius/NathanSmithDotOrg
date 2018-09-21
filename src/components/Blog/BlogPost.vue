@@ -19,7 +19,7 @@ import { Component, Prop, Watch, Vue, Inject } from 'vue-property-decorator';
 import NavBar from '../Common/NavBar.vue';
 import ButterAttr from './ButterCMSAttribution.vue';
 import ButterService from '../../services/butter.service';
-import { IPost } from '../../models/IPost';
+import { IPost } from './models/IPost';
 
 @Component({
     components: {

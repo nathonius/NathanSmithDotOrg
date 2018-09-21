@@ -5,6 +5,7 @@ import FourOFour from './components/Common/FourOFour.vue';
 import Blog from './components/Blog/Blog.vue';
 import BlogPost from './components/Blog/BlogPost.vue';
 import ButterService from './services/butter.service';
+import RPGTools from './components/RPGs/RPGTools.vue';
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
@@ -16,6 +17,11 @@ const routes: RouteConfig[] = [
         name: 'home',
         path: '/',
         component: App
+    },
+    {
+        name: 'rpgtools',
+        path: '/rpgtools',
+        component: RPGTools
     },
     {
         name: 'blog',

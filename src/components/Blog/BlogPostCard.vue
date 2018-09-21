@@ -12,16 +12,16 @@
 </template>
 
 <script lang="ts">
-import { IPost } from '../../models/IPost';
+import { IPost } from './models/IPost';
 import { Component, Vue, Prop } from 'vue-property-decorator';
 
 @Component
 export default class BlogPostCard extends Vue {
     @Prop() public post!: IPost;
     get PublishDate(): string {
-        if(this.post.published) {
+        if (this.post.published) {
             const theDate: Date = new Date(this.post.published);
-            return theDate.toLocaleDateString("en-US");
+            return theDate.toLocaleDateString('en-US');
         }
         return '';
     }

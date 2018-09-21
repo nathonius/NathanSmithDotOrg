@@ -14,7 +14,7 @@ import NavBar from '../Common/NavBar.vue';
 import BlogPostCard from './BlogPostCard.vue';
 import ButterAttr from './ButterCMSAttribution.vue';
 const SmoothScroll = require('smooth-scroll');
-import { IPostList } from '../../models/IPost';
+import { IPostList } from './models/IPost';
 import ButterService from '../../services/butter.service';
 
 const scrollBlog = new SmoothScroll('a[href*="#"]', {

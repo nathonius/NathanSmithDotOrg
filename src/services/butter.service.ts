@@ -1,6 +1,6 @@
 import * as Butter from 'buttercms';
-import { IPost, IPostList } from '../models/IPost';
-import { IProject } from '../models/IProject';
+import { IPost, IPostList } from '../components/Blog/models/IPost';
+import { IProject } from '../components/App/models/IProject';
 
 export default class ButterService {
     private butterAPIKey = require('./buttercms.json').key;

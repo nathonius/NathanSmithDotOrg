@@ -16,7 +16,7 @@
 </template>
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator';
-import { IProject } from '../../models/IProject';
+import { IProject } from './models/IProject';
 
 @Component
 export default class Project extends Vue {
