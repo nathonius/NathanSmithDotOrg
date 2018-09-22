@@ -2,7 +2,7 @@
     <li class="roll">
         <span class="die">{{ roll.count }}d{{ roll.die }}</span>
         <span class="result">{{ roll.result.join(', ') }}</span>
-        <span class="total"><span class="totalLabel">Total:&nbsp</span><span class="totalResult">{{ roll.result.reduce((total, n) => total + n) }}</span></span>
+        <span class="total"><span class="totalLabel">Total:&nbsp;</span><span class="totalResult">{{ roll.result.reduce((total, n) => total + n) }}</span></span>
     </li>
 </template>
 
@@ -25,7 +25,7 @@ $rollWidth: 200px;
     transition: all .2s, color 2s;
     background-color: $green;
     border-radius: 13px;
-    height: $rollHeight;
+    min-height: $rollHeight;
     color: $darkgrey;
     margin-bottom: 15px;
     display: flex;
@@ -37,11 +37,15 @@ $rollWidth: 200px;
     .die {
         text-align: left;
         margin-left: 15px;
-        width: 45px;
+        min-width: 45px;
     }
     .result {
+        max-width: 250px;
         margin-left: 20px;
         margin-right: 20px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     .total {
         margin-right: 15px;
