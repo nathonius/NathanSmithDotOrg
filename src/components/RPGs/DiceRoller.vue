@@ -1,7 +1,9 @@
 <template>
 <div id="roller">
-    <input v-model="currentRoll" @keyup="getRoll" name="rollInput" id="rollInput" placeholder="eg. 1d6" :class="{valid: isValidRoll}">
-    <button @click="doRoll">Roll</button>
+    <div class="controls">
+        <input v-model="currentRoll" @keyup="getRoll" name="rollInput" id="rollInput" placeholder="eg. 1d6" :class="{valid: isValidRoll}">
+        <button @click="doRoll">Roll</button>
+    </div>
     <transition-group name="roll" tag="ul" id="rollList">
         <Roll v-for="roll in rolls" :key="roll.index" :roll="roll"></Roll>
     </transition-group>
@@ -32,6 +34,9 @@ export default class DiceRoller extends Vue {
         const selection = window.getSelection().toString();
         const arrows = ['ArrowLeft', 'ArrowUp', 'ArrowRight', 'ArrowDown'];
         if (selection !== '' || arrows.includes(event.key)) {
+            return;
+        } else if (event.key === 'Enter') {
+            this.doRoll();
             return;
         }
 
@@ -96,18 +101,40 @@ export default class DiceRoller extends Vue {
 @import '../../Global.scss';
 #roller {
     display: inline-block;
-    #rollInput {
-        width: 80px;
-        border-color: red;
-        &.valid {
-            border-color: green;
+    padding: $smallGap;
+    $controlHeight: 35px;
+    .controls {
+        height: $controlHeight;
+        margin-bottom: $smallGap;
+        #rollInput {
+            margin-right: 5px;
+            text-align: center;
+            width: 80px;
+            height: 100%;
+            border: 2px solid #efb2c6;
+            border-radius: 13px;
+            &.valid {
+                border-color: #C6EFB2;
+            }
+        }
+        button {
+            height: 100%;
+            background-color: white;
+            border: 2px solid rgba($grey, 0.5);
+            border-radius: 13px;
+            &:hover {
+                border-color: $grey;
+            }
+            &:active {
+                background-color: #C6EFB2;
+            }
         }
     }
 }
 #rollList {
+    padding: 0;
     list-style: none;
     margin: 0;
-    padding: $smallGap;
     display: block;
 }
 .roll-enter, .roll-leave-to {
