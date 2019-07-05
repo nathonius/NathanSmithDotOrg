@@ -5,7 +5,6 @@
             <li><a href="#section-about" v-on:click="closeMenu">ABOUT</a></li>
             <li><a href="#section-projects" v-on:click="closeMenu">PROJECTS</a></li>
             <li><a href="#section-contact" v-on:click="closeMenu">CONTACT</a></li>
-            <li><router-link to="/blog" v-on:click="closeMenu">BLOG</router-link></li>
             <li id="showMenuButton" v-on:click="toggleMenu"><i class="fas fa-3x fa-angle-down"></i></li>
         </ul>
         <ul ref="menu" v-else>
